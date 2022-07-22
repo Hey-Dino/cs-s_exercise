@@ -1,0 +1,399 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+a {
+    text-decoration: none;
+    color: #808080;
+}
+
+a:hover {
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+/* 版心 开始 */
+.w {
+    width: 1000px;
+    margin: 0 auto;
+}
+/* 版心 结束 */
+
+
+/* header 开始 */
+header {
+    width: 100%;
+    min-width: 1000px;
+    height: 58px;
+    background-color: #191d3a;
+}
+
+header>.w>div {
+    float: left;
+    text-align: center;
+}
+
+header .logo {
+    width: 200px;
+    height: 100%;
+    margin-right: 25px;
+}
+
+.logo a {
+    display: block;
+    height: 58px;
+    background-color: pink;
+}
+
+.logo img {
+    height: 100%;
+}
+
+header .nav {
+    margin-right: 48px;
+}
+
+.nav ul {
+    height: 100%;
+}
+
+.nav ul li {
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 58px;
+    border-right: 1px solid #252947;
+
+    color: #818496;
+    cursor: pointer;
+}
+
+.nav ul li:first-child {
+    border-left: 1px solid #252947;
+}
+
+.nav ul li a {
+    display: block;
+}
+
+.nav li a:hover {
+    background-color: #808080;
+}
+
+.nav li a.chose {
+    color: #fff;
+    background-color: #808080;
+}
+
+header .joinUs {
+    width: 100px;
+    height: 100%;
+    margin: 12px 0;
+}
+
+header .joinUs a {
+    display: block;
+    width: 100px;
+    height: 34px;
+    line-height: 32px;
+    border: 1px solid #3aca7a;
+    border-radius: 3px;
+
+    color: #afffaf;
+    background-color: #26ce50;
+}
+
+/* header 结束 */
+
+/* banner 开始 */
+.banner {
+    width: 100%;
+    min-width: 1000px;
+    margin-bottom: 50px;
+}
+
+.banner ul li img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+/* banner 结束 */
+
+/* box 开始 */
+.box {
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.box .rec-pages {
+    width: calc(4 * 1000px);
+    height: 100%;
+    margin-bottom: 36px;
+}
+
+.box .rec-pages .rec-page {
+    float: left;
+    width: 1000px;
+    height: 100%;
+}
+
+.rec-page ul {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.rec-page ul li {
+    width: 220px;
+    height: 100%;
+    text-align: center;
+}
+
+.rec-page ul li a {
+    display: block;
+    height: 100%;
+}
+
+.rec-page li a img {
+    width: 100%;
+    height: 130px;
+    
+}
+
+.rec-page li a .tit {
+    line-height: 36px;
+    color: #4f4c66;
+}
+
+.rec-page li a .link {
+    line-height: 1em;
+    color: #38b774;
+}
+
+.rec-page .link span {
+    display: inline-block;
+    width: 0;
+    height: 0px;
+    margin-left: 7px;
+    border-style: solid;
+    border-color: transparent transparent transparent #38b774;
+    border-width: 4px 0px 4px 4px;
+}
+
+.box .rec-dots {
+    display: flex;
+    position: relative;
+    height: 12px;
+}
+
+.rec-dots .line {
+    flex: 1;
+    border-top: 1px solid #dbe1e7;
+}
+
+.rec-dots .dots {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: -50%;
+    width: 117px;
+    height: 100%;
+}
+
+.rec-dots .dots span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    background-color: #b5c0cb;
+}
+
+.rec-dots .dots .chose {
+    background-color: #2fbc71;
+}
+
+/* box 结束 */
+
+/* footer 开始 */
+footer {
+    min-width: 1000px;
+    height: 90px;
+    line-height: 90px;
+    background-color: #191d3a;
+}
+
+footer .state {
+    float: left;
+    color: #808080;
+}
+
+footer .copyright {
+    float: right;
+    color: #808080;
+}
+/* footer 结束 */
+
+/* more-info 开始 */
+.more-info {
+    height: 360px;
+    padding-bottom: 50px;
+}
+
+.more-info .cont {
+    display: flex;
+    height: 100%;
+}
+
+.more-info .news,
+.more-info .jobs {
+    flex: 1;
+    position: relative;
+}
+
+.more-info .cont .news {
+    color: #454665;
+    background-image: url(../images/newbg.jpg);
+}
+
+.more-info .cont .jobs {
+    color: #fff;
+    background-image: url(../images/person.jpg);
+}
+
+.news .news-tit,
+.jobs .jobs-tit {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    position: absolute;
+    top: 32px;
+    left: 80px;
+    width: 205px;
+}
+
+.news .news-tit .zh-tit,
+.jobs .jobs-tit .zh-tit {
+    font-size: 31px;
+}
+
+.news .news-tit .en-tit,
+.jobs .jobs-tit .en-tit {
+    font-size: 12px;
+}
+
+.news .news-tit .more,
+.jobs .jobs-tit .more {
+    position: relative;
+    display: block;
+    width: 66px;
+    height: 28px;
+    line-height: 26px;
+    padding-left: 8px;
+    margin: 6px 0;
+    border: 1px solid #33b972;
+    border-radius: 5px;
+    
+    color: #33b972;
+    font-size: 10px;
+}
+
+.jobs .jobs-tit .more {
+    border-color: #fff;
+    color: #fff;
+}
+
+.news .news-tit .more span,
+.jobs .jobs-tit .more span {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    line-height: 1em;
+}
+
+.news .news-cont {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 190px;
+    padding: 0 20px;
+}
+
+.news .news-cont li {
+    flex: 1;
+    line-height: 46px;
+    border-bottom: 1px solid #dbe1e7;
+
+    font-weight: 500;
+    color: #444866;
+}
+
+.news .news-cont li a {
+    display: block;
+    transition: all .1s;
+}
+
+.news-cont li a:hover {
+    color: #808080;
+    font-weight: 550;
+}
+
+.news-cont li a .date {
+    margin-right: 12px;
+    color: #dbe1e7;
+}
+
+.jobs .jobs-cont {
+    position: absolute;
+    bottom: 27px;
+    left: 0;
+    padding: 0 20px;
+    margin-bottom: 3px;
+}
+
+.jobs .jobs-cont .tip {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.jobs .jobs-cont ul {
+    display: flex;
+    flex-direction: column;
+    width: 305px;
+    height: 152px;
+}
+
+.jobs .jobs-cont ul li {
+    flex: 1;
+    line-height: 37px;
+    border-bottom: 1px solid #6fdea3;
+
+    font-size: 12px;
+}
+
+.jobs-cont ul li a {
+    display: block;
+    color: #fff;
+}
+
+/* more-info 结束 */

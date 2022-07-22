@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿百度注册</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .w {
+            width: 550px;
+            margin: 20px auto;
+        }
+
+        #logo {
+            width: 136px;
+            height: 48px;
+
+            margin-bottom: 50px;
+        }
+
+        form table {
+            width: 100%;
+        }
+
+        table tr {
+            height: 35px;
+            line-height: 35px;
+        }
+
+        table tr td:first-child {
+            width: 30%;
+            text-align: right;
+        }
+
+        table tr td:last-child {
+            padding-left: 10px;
+        }
+
+        #codeImg {
+            vertical-align: bottom;
+        }
+
+        #agree {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        #register {
+            width: 100px;
+            height: 30px;
+            margin-right: 90px;
+
+            border: none;
+            background-color: #4995e1;
+            color: #fff;
+
+            cursor: pointer;
+        }
+
+        #reset {
+            padding: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <img src="images/logo_baidu.jpg" id="logo">
+        <h3>添加注册信息</h3>
+
+        <form action="javascript:;" method="get">
+            <table>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td>确认密码：</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td>验证码：</td>
+                    <td>
+                        <input type="text" id="codeContent">
+                        <img src="images/yz.jpg" alt="验证码" id="codeImg">
+                        <a href="javascript:;">注册用户</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" id="agree">我已阅读并接受
+                        <a href="javascript:;">《百度用户协议》</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button id="register">注册</button>
+                        <input type="reset" value="重新填写" id="reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
