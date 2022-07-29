@@ -1,0 +1,170 @@
+/* home-hero 开始 */
+.home-hero {
+    background-color: #fff;
+    padding-bottom: 68px;
+}
+
+.home-swpier {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.home-swpier ul {
+    position: relative;
+    width: 400%;
+    height: 100%;
+}
+
+.home-swpier ul li {
+    float: left;
+    height: 100%;
+}
+
+.home-sub {
+    height: 170px;
+}
+
+.home-sub .home-channel-list {
+    float: left;
+    width: 233px;
+    height: 100%;
+    padding: 49px 0;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #5f5750;
+}
+
+.home-sub .home-promo-list {
+    float: left;
+    width: 993px;
+    height: 100%;
+}
+
+.home-sub .home-promo-list img {
+    float: left;
+    width: 316px;
+    height: 100%;
+    margin-left: 15px;
+}
+
+/* home-hero 结束 */
+
+/* brick-box 开始 */
+.brick-box {
+    margin: 65px 0;
+}
+
+.brick-box .box-hd {
+    position: relative;
+    height: 58px;
+    line-height: 58px;
+}
+
+.brick-box .box-hd .title {
+    font-size: 22px;
+    font-weight: normal;
+    color: #333;
+}
+
+.brick-box .box-hd .more {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 16px;
+    color: #424242;
+}
+
+.brick-box .box-bd {
+    perspective: 500px;
+    height: 615px;
+}
+
+.brick-box .box-bd .bd-left {
+    float: left;
+}
+
+.brick-box .box-bd .bd-right {
+    float: left;
+    width: 992px;
+}
+
+.box-bd .bd-right ul li {
+    float: left;
+    width: 234px;
+    height: 300px;
+    margin-left: 14px;
+    background-color: #fff;
+}
+
+.bd-right ul li:nth-child(-n+4) {
+    margin-bottom: 14px;
+}
+
+.bd-right ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.bd-right li a img {
+    width: 160px;
+    height: 160px;
+    margin-top: 20px;
+    margin-bottom: 18px;
+    background-color: skyblue;
+}
+
+.bd-right li a .title {
+    font-size: 14px;
+    color: #333;
+}
+
+.bd-right li a .desc {
+    margin-top: 3px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+.bd-right li a .price {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #ff6700;
+}
+
+.bd-right li .price del {
+    color: #b0b0b0;
+}
+
+.bd-right li a .goods-tip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 64px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.bd-right li a .free-mail {
+    background-color: #ffac13;
+}
+
+.bd-right li a .discount {
+    background-color: #e53935;
+}
+
+/* .box-bd li:hover {
+    transform: rotateX(30deg);
+} */
+
+/* brick-剥削 结束 */

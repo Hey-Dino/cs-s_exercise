@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            perspective: 400px;
+        }
+
+        .box-outer {
+            width: 200px;
+            height: 300px;
+            margin: 300px auto;
+            /* margin-top: -150px; */
+            padding-top: -150px;
+            overflow: hidden;
+            background-color: pink;
+            border: 2px solid #333;
+            perspective: 400px;
+            transition: all .3s;
+        }
+
+        .box-inner {
+            width: 100%;
+            height: 100%;
+            transform: translateY(50%);
+            background-color: skyblue;
+            transition: all .3s;
+        }
+
+        .box-outer:hover {
+            transform: rotateX(5deg);
+        }
+
+        .box-outer:hover .box-inner {
+            background-color: green;
+            box-shadow: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-outer">
+        <div class="box-inner"></div>
+    </div>
+</body>
+
+</html>
