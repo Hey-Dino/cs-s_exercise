@@ -1,4 +1,4 @@
-package cn.dino.demo;
+package cn.dino.demo.Demo0720;
 
 public class test0720 {
     public static void main(String[] args) {

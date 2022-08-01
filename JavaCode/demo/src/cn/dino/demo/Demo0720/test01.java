@@ -1,4 +1,4 @@
-package cn.dino.demo;
+package cn.dino.demo.Demo0720;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
 package cn.dino.demo.Demo0721;
 
-import cn.dino.demo.pojo.Student;
+import cn.dino.demo.Demo0720.pojo.Student;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package cn.dino.demo.pojo;
+package cn.dino.demo.Demo0720.pojo;
 
 public class Student {
     private String sid;
