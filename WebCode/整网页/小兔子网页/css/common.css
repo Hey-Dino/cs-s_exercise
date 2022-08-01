@@ -206,6 +206,7 @@ header .site-topbar ul {
 .categoryList li a:hover {
     background-color: #27bb9a;
 }
+
 /* header 结束 */
 
 /* footer 开始 */
@@ -223,6 +224,7 @@ footer .contact {
 footer .contact dl {
     float: left;
     width: 310px;
+    height: 100%;
 }
 
 footer .contact dl dt {
@@ -242,10 +244,57 @@ footer .contact dl:nth-child(-n+2) {
 }
 
 footer .contact dl:nth-child(-n+2) dd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 95px;
     height: 95px;
     margin: 0 5px;
     border: 1px solid #eee;
+}
+
+footer .contact dl:nth-child(-n+2) .ico {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+}
+
+footer .contact dl:nth-child(-n+2) span {
+    line-height: 1;
+    color: #999;
+}
+
+footer .contact dl .ico1 {
+    background: url(../images/sprites.png) -246px -66px;
+}
+
+footer .contact dd:hover .ico1 {
+    background-position: -201px -66px;
+}
+
+footer .contact dl .ico2 {
+    background: url(../images/sprites.png) -347px -67px;
+}
+
+footer .contact dd:hover .ico2 {
+    background-position: -297px -67px;
+}
+
+footer .contact dl .ico3 {
+    background: url(../images/sprites.png) -249px -11px;
+}
+
+footer .contact dd:hover .ico3 {
+    background-position: -204px -11px;
+}
+
+footer .contact dl .ico4 {
+    background: url(../images/sprites.png) -350px -11px;
+}
+
+footer .contact dd:hover .ico4 {
+    background-position: -300px -11px;
 }
 
 footer .contact dl:nth-child(3) {
@@ -253,7 +302,7 @@ footer .contact dl:nth-child(3) {
 }
 
 footer .contact dl:nth-child(3) dd {
-    padding: 0 12px;
+    margin: 0 12px;
 }
 
 footer .contact dl .qr-code {
@@ -264,4 +313,115 @@ footer .contact dl .qr-code {
 footer .contact .qr-code img {
     width: 100%;
 }
+
+footer .contact .intro p {
+    padding: 12px 0;
+    line-height: 22px;
+    color: #999;
+}
+
+footer .contact .intro a {
+    display: block;
+    width: 103px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #fff;
+    background-color: #27bb9a;
+}
+
+footer .contact dl:nth-child(4) {
+    text-align: center;
+    border-left: 1px solid #f4f4f4;
+}
+
+footer .contact .service {
+    width: 100%;
+}
+
+footer .contact .service .hotline {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 17px;
+    line-height: 1em;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+
+footer .contact .service .workday {
+    display: block;
+    line-height: 1em;
+    color: #999;
+}
+
 /* footer 结束 */
+
+/* site-info 开始 */
+.site-info {
+    height: 340px;
+    background-color: #333;
+}
+
+.site-info .self-intro {
+    height: 172px;
+    border-bottom: 1px solid #434343;
+}
+
+.site-info .self-intro ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.site-info .self-intro ul li {
+    flex: 1;
+    display: flex;
+    width: 189px;
+    height: 58px;
+    line-height: 58px;
+    padding: 0 112px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.site-info .self-intro li::before {
+    content: '';
+    width: 58px;
+    height: 58px;
+    margin-right: 19px;
+}
+
+.self-intro li:nth-child(1)::before {
+    background: url(../images/sprites.png) 0 0;
+}
+
+.self-intro li:nth-child(2)::before {
+    background: url(../images/sprites.png) -65px 0;
+}
+
+.self-intro li:nth-child(3)::before {
+    background: url(../images/sprites.png) -130px 0;
+}
+
+.site-info .more-info ul {
+    display: flex;
+    justify-content: center;
+    line-height: 1em;
+    margin-top: 40px;
+    margin-bottom: 22px;
+    color: #999;
+}
+
+.site-info .more-info ul li:nth-child(2n) {
+    margin: 0 4px;
+}
+
+.site-info .copyright {
+    width: 100%;
+    text-align: center;
+    color: #999;
+}
+/* site-info 结束 */
