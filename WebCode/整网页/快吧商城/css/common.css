@@ -1,0 +1,374 @@
+/* 声明字体图标 这里一定要注意路径 */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?2smopd');
+    src:  url('../fonts/icomoon.eot?2smopd#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?2smopd') format('truetype'),
+    url('../fonts/icomoon.woff?2smopd') format('woff'),
+    url('../fonts/icomoon.svg?2smopd#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.style_red {
+    color: #c81622
+}
+
+/* 快捷导航模块 */
+.shortcut { 
+    min-width: 1200px;
+    width: 100%;
+    height: 31px;
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut ul li {
+    float: left;
+}
+
+.shortcut .fr li:nth-of-type(odd) {
+    padding: 0 15px;   
+}
+
+.shortcut .fr li:last-child {
+    padding-right: 0;
+}
+
+.shortcut .fr li:nth-of-type(even) {
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin-top: 9px;
+}
+
+.shortcut .arrow-icon::after {
+    content: '';
+    font-family: 'icomoon';
+    margin-left: 6px;
+}
+
+/* 头部 */
+.header {
+    position: relative;
+    height: 105px;
+}
+
+.header>div {
+    position: absolute;
+}
+
+.header .logo {
+    width: 171px;
+    height: 61px;
+    top: 25px;
+}
+
+.header .logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    /* 取消文字-淘宝做法 */
+    /* text-indent: -999em;
+    overflow: hidden; */
+    /* 京东做法 */
+    font-size: 0;
+    background: url(../images/logo.png) no-repeat;
+}
+
+.header .search {
+    top: 25px;
+    left: 347px;
+}
+
+.search input[type=search] {
+    float: left;
+    padding: 0 10px;
+    width: 454px;
+    height: 32px;
+    border: 2px solid #af191b;
+    border-right: none;
+}
+
+.search input[type=button] {
+    float: left;
+    width: 82px;
+    height: 32px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #af191b;
+}
+
+.hotwords {
+    top: 70px;
+    left: 347px;
+}
+
+.hotwords li {
+    float: left;
+}
+
+.hotwords ul a {
+    float: left;
+    margin: 0 12px;
+}
+
+.shopcar {
+    top: 25px;
+    right: 60px;
+}
+
+.shopcar a {
+    display: block;
+    width: 140px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+
+.shopcar a::before {
+    content: '';
+    font-family: 'icomoon';
+    margin-right: 7px;
+    color: #af191b;
+}
+
+.shopcar a::after {
+    content: '';
+    font-family: 'icomoon';
+    margin-left: 15px;
+}
+
+.shopcar .count {
+    position: absolute;
+    height: 15px;
+    padding: 0 5px;
+    top: -4px;
+    left: 104px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 8px 8px 8px 0;
+    background-color: #e60012;
+
+    font-size: 12px;
+    color: #fff;
+}
+
+/* nav 模块 */
+.nav {
+    height: 45px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.dropdown {
+    float: left;
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+}
+
+.dropdown .dt {
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    text-align: center;
+
+    font-size: 16px;
+    color: #fff;
+}
+
+.dropdown .dd {
+    /* display: none; */
+    width: 100%;
+    height: 465px;
+    line-height: 31px;
+    background-color: #c81623;
+}
+
+.dropdown .dd li {
+    margin-left: 1px;
+    padding: 0 11px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.dropdown .dd li::after {
+    float: right;
+    content: '';
+    font-family: 'icomoon';
+}
+
+/* .dropdown .dd li:nth-child(13)::after,
+.dropdown .dd li:nth-of-type(14)::after,
+.dropdown .dd li:nth-of-type(15)::after {
+    font-size: 0;
+} */
+
+.dropdown .dd a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.dropdown .dd li:hover {
+    background-color: #f7f7f7;
+    color: #c81623;
+}
+
+.dropdown .dd li:hover::after {
+    color: #f7f7f7;
+}
+
+.dropdown .dd li:hover a {
+    color: #c81623;
+}
+
+.nav .navitems {
+    float: left;
+    width: 740px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+}
+
+.nav .navitems ul li {
+    float: left;
+    color: #666;
+}
+
+.navitems ul li a {
+    display: block;
+    padding: 0 25px;
+    font-size: 16px; 
+}
+
+/* footer 模块 */
+.footer {
+    /* overflow: hidden; */
+    min-width: 1200px;
+    width: 100%;
+    height: 417px;
+    /* margin-top: 770px; */
+    background-color: #f5f5f5;
+}
+
+.mod_service {
+    height: 50px;
+    margin: 30px 0;
+}
+
+.mod_service ul li {
+    float: left;
+    width: 240px;
+    height: 50px;
+    padding-left: 35px;
+    /* background-color: skyblue; */
+}
+
+.mod_service h5 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+    /* background-color: orange; */
+}
+
+.mod_service li:nth-child(1) h5 {
+    background: url(../images/icons.png) -253px -3px;
+}
+
+.mod_service li:nth-child(2) h5 {
+    background: url(../images/icons.png) -255px -54px;
+}
+
+.mod_service li:nth-child(3) h5 {
+    background: url(../images/icons.png) -257px -106px;
+}
+
+.mod_service li:nth-child(4) h5 {
+    background: url(../images/icons.png) -258px -158px;
+}
+
+.mod_service li:nth-child(5) h5 {
+    background: url(../images/icons.png) -258px -209px;
+}
+
+.service_txt {
+    padding: 5px 0;
+}
+
+.service_txt h4 {
+    font-size: 14px;
+    color: #333;
+}
+
+.service_txt p {
+    font-size: 12px;
+    color: #666;
+}
+
+.mod_help {
+    height: 190px;
+    padding-left: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.mod_help dl {
+    float: left;
+    width: 200px;
+    margin: 11px 0;
+}
+
+.mod_help dl:last-child {
+    width: 90px;
+    text-align: center;
+}
+
+.mod_help dl dt {
+    line-height: 36px;
+    font-size: 16px;
+    color: #666;
+}
+
+.mod_help dl dd {
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.links {
+    padding-bottom: 15px;
+}
+
+.links a {
+    padding: 0 16px;
+}
+
+.copyright {
+    line-height: 20px;
+}

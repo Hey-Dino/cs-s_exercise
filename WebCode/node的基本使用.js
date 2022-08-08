@@ -183,3 +183,16 @@ console.log("Symbol(\"Dino\") === Symbol(\"Dino\"):", s01 === s02);
 let s03 = Symbol.for("Pedro");
 let s04 = Symbol.for("Pedro");
 console.log("Symbol.for(\"Pedro\") === Symbol.for(\"Pedro\"):", s03 === s04);
+console.log("遍历存在Symbol类型成员变量的对象:")
+userInfo = {
+    uname: "Dino",
+    [age]: 22,
+    [Symbol('showName')]: function () {
+        console.log("My name is " + uname);
+    }
+}
+var sym = Object.getOwnPropertySymbols(userInfo);
+console.log("User's information:", userInfo)
+console.log("User's", userInfo[sym[0]] = 23);
+userInfo[sym[1]]();
+

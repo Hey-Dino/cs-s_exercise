@@ -1,0 +1,173 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 84px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b3191b;
+    /* background-color: pink; */
+}
+
+.logo img {
+    position: absolute;
+    top: 13px;
+}
+
+.registerea {
+    width: 100%;
+    height: 522px;
+    border: 1px solid #e0e0e0;
+}
+
+.registerea h3 {
+    width: 100%;
+    height: 41px;
+    padding-left: 10px;
+    line-height: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ececec;
+
+    font-size: 16px;
+    font-weight: normal;
+    color: #000;
+}
+
+.login {
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.login a {
+    display: inline-block;
+    color: #b3191b;
+}
+
+.reg_form {
+    width: 600px;
+    margin: 50px auto 0;
+    /* background-color: pink; */
+}
+
+.reg_form ul li {
+    margin-bottom: 20px;
+}
+
+.reg_form ul li label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.reg_form input[type='text'],
+.reg_form input[type='password'] {
+    width: 240px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #999;
+}
+
+.error,
+.success {
+    display: none;
+    margin-left: 12px;
+}
+
+.error {
+    color: #c81523;
+}
+
+.success {
+    display: none;
+    color: #42b840;
+}
+
+.error_icon,
+.success_icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
+.error_icon {
+    background: url(../images/error_icon.png);
+}
+
+.success_icon {
+    background: url(../images/success_icon.png) center;
+    background-size: cover;
+}
+
+
+.safe {
+    margin-top: -10px;
+    padding-left: 185px;
+}
+
+.safe span {
+    margin-right: 9px;
+}
+
+.safe em {
+    padding: 0 10px;
+    margin-left: 1px;
+    color: #fff;
+}
+
+.ruo {
+    background-color: #e52e52;
+}
+
+.zhong {
+    background-color: #42b840;
+}
+
+.qiang {
+    background-color: #f79003;
+}
+
+.reg_form input[type='checkbox'] {
+    vertical-align: middle;
+    margin-left: 100px;
+    margin-right: 12px;
+}
+
+.reg_form a {
+    margin-left: 8px;
+    color: #25a1d5;
+}
+
+.reg_form .btn {
+    width: 200px;
+    height: 34px;
+    margin-top: 30px;
+    margin-left: 110px;
+    background-color: #c81523;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* mode_copyright */
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.links {
+    padding-bottom: 15px;
+}
+
+.links a {
+    padding: 0 16px;
+}
+
+.copyright {
+    line-height: 20px;
+}

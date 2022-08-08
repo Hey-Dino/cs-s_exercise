@@ -1,0 +1,157 @@
+/*  */
+.nav {
+    overflow: hidden;
+}
+
+.sk {
+    position: absolute;
+    left: 185px;
+    top: 40px;
+    padding: 3px 15px;
+    border-left: 1px solid #c81523;
+}
+
+.sk_list {
+    float: left;
+}
+
+.sk_list ul li {
+    float: left;
+}
+
+.sk_list ul li a {
+    display: block;
+    line-height: 44px;
+    padding: 0 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}
+
+.sk_list ul li a:hover {
+    color: #c81523;
+}
+
+.sk_con {
+    float: left;
+}
+
+.sk_con ul li {
+    float: left;
+}
+
+.sk_con ul li a {
+    display: block;
+    line-height: 46px;
+    padding: 0 23px;
+    font-size: 14px;
+}
+
+.sk_con ul li:last-child a::after {
+    content: '';
+    font-family: 'icomoon';
+    padding-left: 6px;
+}
+
+/* sk_container模块 */
+.sk_hd {
+    width: 100%;
+    height: 120px;
+}
+
+.sk_bd ul li {
+    float: left;
+    width: 290px;
+    height: 460px;
+    margin: 0 13px 10px 0;
+    border: 1px solid transparent;
+    /* background-color: skyblue; */
+}
+
+.sk_bd ul li:hover {
+    border: 1px solid #c81523;
+}
+
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.goods {
+    /* display: inline-block; */
+    width: 290px;
+    margin: 20px auto;
+}
+
+.goods img {
+    width: 100%;
+    height: 290px;
+    vertical-align: bottom;
+}
+
+.goods-title {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+}
+
+.goods-price {
+    padding: 0 10px;
+    /* line-height: 33px; */
+}
+
+.goods-price span {
+    font-size: 22px;
+    color: #E60012;
+}
+
+.goods-price del {
+    font-size: 14px;
+    font-weight: bold;
+    color: #A4A4A4;
+}
+
+.goods-progress {
+    padding: 0 10px;
+}
+
+.goods-progress i,
+.goods-progress span {
+    color: red;
+}
+
+.bar {
+    /* position: relative; */
+    display: inline-block;
+    width: 130px;
+    height: 10px;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid red;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar-in {
+    width: 87%;
+    height: 100%;
+    background-color: #f24349;
+}
+
+.goods-buy {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    background-color: rgb(179, 25, 25);
+    transition: .2s;
+}
+
+.goods-buy:hover {
+    background-color: rgba(179, 25, 25, .8);
+}
