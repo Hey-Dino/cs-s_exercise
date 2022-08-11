@@ -2,7 +2,7 @@ package com.dino.jdbc;
 
 import java.sql.*;
 
-public class JDBCDemo05_prepareStatement {
+public class JDBCDemo06_prepareStatement {
     public static void main(String[] args) throws Exception {
         // 建立连接
         String url = "jdbc:mysql://127.0.0.1:3306/demo_cs?useSSL=false";
