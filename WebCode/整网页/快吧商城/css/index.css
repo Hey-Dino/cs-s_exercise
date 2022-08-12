@@ -360,11 +360,125 @@
     font-size: 14px;
 }
 
+/* 有趣区 */
+.gray-color {
+    color: #5d5d5d !important;
+}
+
+.fun-area .fun-bd {
+    display: flex;
+    height: 407px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.fun-area .fun-bd .fun-rec {
+    width: 404px;
+    height: 100%;
+    background-color: skyblue;
+}
+
+.fun-area .fun-bd .goods {
+    width: 227px;
+    height: 100%;
+    border-right: 1px solid #ededed;
+}
+
+.fun-area .fun-bd .brands-street {
+    width: 406px;
+    height: 100%;
+    border-right: 1px solid #ededed;
+    background-color: #f7f7f7;
+}
+
+.fun-area .fun-bd .brands {
+    flex: 1;
+    border-right: 1px solid #ededed;
+}
+
+.fun-area .fun-bd .brands ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px 0;
+    padding-left: 10px;
+}
+
+.fun-bd .brands ul li {
+    flex: 1;
+    display: flex;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.fun-bd .brands ul li:last-child {
+    border-bottom: none;
+}
+
+.fun-bd .brands li a {
+    flex: 1;
+}
+
+.fun-bd .brands li a:first-child {
+    border-right: 1px dashed #e0e0e0;
+}
+
+.fun-bd .brands li img {
+    width: 100%;
+    height: 100%;
+}
+
+.fun-area .fun-bd .goods .goods-tit,
+.fun-area .fun-bd .brands-street .street-tit {
+    height: 40px;
+    line-height: 40px;
+    margin: 0 20px;
+    text-align: center;
+    border-bottom: 1px dashed #ededed;
+    font-size: 14px;
+    color: #333;
+}
+
+.fun-bd .goods,
+.fun-bd .brands-street {
+    display: flex;
+    flex-direction: column;
+}
+
+.fun-bd .goods .goods-cont,
+.fun-bd .brands-street .brands-street-cont {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.fun-bd .goods .goods-cont .cont-top,
+.fun-bd .brands-street .brands-street-cont .cont-top {
+    width: 100%;
+    height: 205px;
+    border-bottom: 1px solid #eee;
+}
+
+.fun-bd .goods .goods-cont .cont-bottom,
+.fun-bd .brands-street .brands-street-cont .cont-bottom {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+
+.brands-street .brands-street-cont .cont-bottom a {
+    flex: 1; 
+}
+
+.brands-street .brands-street-cont .cont-bottom a:first-child {
+    border-right: 1px solid #eee;
+}
+
 /* 家用电器 */
 .floor .box-hd {
     height: 38px;
     line-height: 36px;
-    border-bottom: 2px solid #c81623;
 }
 
 .floor .box-hd h3 {
@@ -392,6 +506,7 @@
     width: 100%;
     height: 360px;
     margin-bottom: 20px;
+    border-top: 2px solid #c81623;
     background-color: pink;
 }
 
@@ -438,4 +553,44 @@
     border: 1px solid #ededed;
     ;
     border-top: none;
+}
+
+/* brand-box */
+.brand-box {
+    height: 65px;
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+}
+
+.brand-box ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 13px 0;
+}
+
+.brand-box ul li {
+    width: 120px;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px dotted #ccc;
+}
+
+.brand-box ul li:last-child {
+    border-right: none;
+}
+
+.brand-box ul li a {
+    display: block;
+    height: 100%;
+}
+
+.brand-box li a img {
+    width: 100%;
+    height: 100%;
+    transition: all .3s;
+}
+
+.brand-box ul li:hover img {
+    transform: scale(1.05);
 }
