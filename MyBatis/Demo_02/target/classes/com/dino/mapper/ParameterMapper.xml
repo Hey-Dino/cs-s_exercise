@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dino.mapper.ParameterMapper">
+    <!-- List<User> queryAll(); -->
+    <select id="queryAll" resultType="User">
+        SELECT * FROM user;
+    </select>
+
+    <!-- User queryUserByUsername(String username); -->
+    <select id="queryUserByUsername" resultType="User">
+        <!-- 使用 #{}，类似于占位符 -->
+        <!-- SELECT * FROM user WHERE username = #{username}; -->
+
+        <!-- 注意：当接受简单类型的参数时，${}里面只能是value。-->
+        SELECT * FROM user WHERE username = '${value}';
+    </select>
+
+    <!--User checkLogin(String username, String password);-->
+    <select id="checkLogin" resultType="User">
+        <!-- Available parameters are [arg1, arg0, param1, param2] -->
+        SELECT * FROM user WHERE username = #{arg0} and password = #{param2};
+    </select>
+
+    <!--User checkLoginByMap(Map<String, Object> map);-->
+    <select id="checkLoginByMap" resultType="User">
+        SELECT * FROM user WHERE username = #{username} and password = #{password};
+    </select>
+
+    <!--int insertUser(User user);-->
+    <insert id="insertUser">
+        INSERT INTO user VALUES(null, #{username}, #{password}, #{gender}, #{addr});
+    </insert>
+
+    <!--User checkLoginByParam(@Param("username") String username, @Param("password") String password);-->
+    <select id="checkLoginByParam" resultType="User">
+        SELECT * FROM user WHERE username = #{username} AND password = #{password};
+    </select>
+</mapper>
