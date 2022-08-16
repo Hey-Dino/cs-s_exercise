@@ -34,7 +34,11 @@
         SELECT * FROM ${tagName};
     </select>
 
-    <!--void insertUser(User user);-->
+    <!--
+        void insertUser(User user):
+            userGeneratedKeys: 设置当前标签中的sql使用了自增的主键
+            keyProperty：将自增的主键的值，赋值给传输到映射文件中参数的某个属性
+    -->
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO user VALUES (null, #{username}, #{password}, #{gender}, #{addr});
     </insert>

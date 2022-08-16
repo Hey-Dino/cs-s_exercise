@@ -1,6 +1,5 @@
 package com.dino.test;
 
-import com.dino.mapper.ParameterMapper;
 import com.dino.mapper.SelectMapper;
 import com.dino.pojo.User;
 import com.dino.utils.SqlSessionUtils;

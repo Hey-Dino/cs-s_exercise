@@ -1,25 +1,25 @@
 package com.dino.pojo;
 
 public class Emp {
-    private Integer id;
+    private Integer eid;
     private String empName;
-    private Integer did;
+    private Dept dept;
 
     public Emp() {
     }
 
-    public Emp(Integer id, String empName, Integer did) {
-        this.id = id;
+    public Emp(Integer eid, String empName, Dept dept) {
+        this.eid = eid;
         this.empName = empName;
-        this.did = did;
+        this.dept = dept;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getEid() {
+        return eid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setEid(Integer eid) {
+        this.eid = eid;
     }
 
     public String getEmpName() {
@@ -30,20 +30,21 @@ public class Emp {
         this.empName = empName;
     }
 
-    public Integer getDid() {
-        return did;
-    }
-
-    public void setDid(Integer did) {
-        this.did = did;
-    }
-
     @Override
     public String toString() {
         return "Emp{" +
-                "id=" + id +
+                "eid=" + eid +
                 ", empName='" + empName + '\'' +
-                ", did=" + did +
+                ", dept=" + dept +
                 '}';
     }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
 }

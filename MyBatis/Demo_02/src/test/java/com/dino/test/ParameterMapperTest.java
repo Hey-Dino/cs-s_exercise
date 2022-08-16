@@ -1,8 +1,8 @@
 package com.dino.test;
 
-import com.dino.utils.SqlSessionUtils;
 import com.dino.mapper.ParameterMapper;
 import com.dino.pojo.User;
+import com.dino.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 

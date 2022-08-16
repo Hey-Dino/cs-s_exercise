@@ -17,7 +17,7 @@
     <!-- 设置类名别名 -->
     <typeAliases>
         <!-- 1、以单个类为单位设置别名，默认别名为类名；如下，默认别名为 User 或 user （不区分大小写） -->
-        <!--<typeAlias type="com.dino.pojo.User"></typeAlias>-->
+        <!--<typeAlias type="User"></typeAlias>-->
 
         <!-- 2、以包为单位设置别名，默认别名为类名 -->
         <package name="com.dino.pojo"/>
@@ -59,7 +59,7 @@
 
     <mappers>
         <!-- 1、加载单个sql映射文件 -->
-        <!--        <mapper resource="com.dino.mapper.UserMapper.xml"/>-->
+        <!--        <mapper resource="UserMapper.xml"/>-->
 
         <!-- 2、以包为单位加载映射文件
              要求：
