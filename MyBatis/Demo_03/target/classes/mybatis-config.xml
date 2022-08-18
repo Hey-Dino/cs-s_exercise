@@ -9,7 +9,7 @@
     <!-- 方法二：设置MyBatis的全局配置 -->
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-<!--        <setting name="lazyLoadingEnabled" value="true"/>-->
+        <setting name="lazyLoadingEnabled" value="true"/>
     </settings>
 
     <typeAliases>

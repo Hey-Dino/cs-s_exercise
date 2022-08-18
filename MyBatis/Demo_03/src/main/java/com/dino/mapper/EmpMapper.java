@@ -16,4 +16,10 @@ public interface EmpMapper {
     *   第一步：通过eid查询员工信息
     * */
     Emp getEmpAndDeptByStep(@Param("eid") Integer eid);
+
+    /*
+    * 配合一对多的映射关系
+    * 分布查询第二部：根据部门id查询员工
+    * */
+    List<Emp> getDeptAndEmpByStep(@Param("eid") Integer eid);
 }

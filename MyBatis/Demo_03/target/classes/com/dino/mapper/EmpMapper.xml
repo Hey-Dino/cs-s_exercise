@@ -65,6 +65,7 @@
             select：设置分布查询的 SQL 的唯一标识（namespace.SQLId 或 mapper接口的全类名.方法名）
             column：设置分布查询的条件
             fetchType：当开启全局延迟加载后，可通过此属性手动控制延迟加载的效果
+                **也可单独使用，不配合全局延迟加载设置**
                 lazy表示延迟加载，eager表示立即加载
         -->
         <association property="dept"
@@ -72,7 +73,12 @@
                      column="did"
                      fetchType="lazy"></association>
     </resultMap>
-    <select id="getEmpAndDeptByStep" resultMap="empAndDeptByStepResultMap">
+    <select id="getEmpAndDeptByStep" resultMap="empResultMap">
         SELECT * FROM emp WHERE eid = #{eid};
+    </select>
+
+
+    <select id="getDeptAndEmpByStep" resultType="Emp">
+        SELECT * FROM emp WHERE did = #{did};
     </select>
 </mapper>

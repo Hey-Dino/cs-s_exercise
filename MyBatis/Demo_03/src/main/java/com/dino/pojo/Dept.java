@@ -1,9 +1,12 @@
 package com.dino.pojo;
 
+import java.util.List;
+
 public class Dept {
     private Integer did;
     private String deptName;
     private String loc;
+    private List<Emp> emps;
 
     public Dept() {
     }
@@ -44,6 +47,16 @@ public class Dept {
                 "did=" + did +
                 ", deptName='" + deptName + '\'' +
                 ", loc='" + loc + '\'' +
+                ", emps=" + emps +
                 '}';
     }
+
+    public List<Emp> getEmps() {
+        return emps;
+    }
+
+    public void setEmps(List<Emp> emps) {
+        this.emps = emps;
+    }
+
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dino.mapper.DynamicsSQLMapper">
+    
+    <!-- SQL片段 -->
+    <sql id="empColumns">eid, emp_name, did</sql>
+
+    <!--List<Emp> getEmpByCondition(Emp emp);-->
+    <select id="getEmpByCondition" resultType="Emp">
+        SELECT <include refid="empColumns"></include> FROM emp
+        <where>
+            <if test="eid != null and eid != ''">
+                and eid = #{eid}
+            </if>
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+        </where>
+    </select>
+    <!--List<Emp> getEmpByConditionTwo(Emp emp);-->
+    <select id="getEmpByConditionTwo" resultType="Emp">
+        SELECT * FROM emp
+        <trim prefix="where" suffixOverrides="and|or">
+            <if test="eid != null and eid != ''">
+                eid = #{eid} and
+            </if>
+            <if test="empName != null and empName != ''">
+                emp_name = #{empName} and
+            </if>
+        </trim>
+    </select>
+
+    <!--List<Emp> getEmpByConditionSingle(Emp emp);-->
+    <select id="getEmpBySingleCondition" resultType="Emp">
+        SELECT * FROM emp
+        <where>
+            <choose>
+                <when test="eid != null and eid != ''">
+                    eid = #{eid}
+                </when>
+                <when test="empName != null and empName != ''">
+                    emp_name = #{empName}
+                </when>
+            </choose>
+        </where>
+    </select>
+
+
+    <!--int deleteMoreByArray(@Param("eids")Integer[] eids);-->
+    <delete id="deleteMoreByArray">
+        <!-- 写法一 -->
+        <!--DELETE FROM emp WHERE eid IN
+        <foreach collection="eids" item="eid"  separator="," open="(" close=")">
+            #{eid}
+        </foreach>-->
+
+        <!-- 写法二 -->
+        DELETE FROM emp WHERE
+        <foreach collection="eids" item="eid" separator="or">
+            eid = #{eid}
+        </foreach>
+    </delete>
+
+
+    <!--int insertMoreByList(@Param("emps")List<Emp> emps);-->
+    <insert id="insertMoreByList">
+        INSERT INTO emp(eid, emp_name, did) VALUES
+        <foreach collection="emps" item="emp" separator=",">
+            (null, #{emp.empName}, null)
+        </foreach>
+    </insert>
+
+</mapper>

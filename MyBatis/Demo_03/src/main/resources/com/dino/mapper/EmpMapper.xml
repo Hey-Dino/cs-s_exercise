@@ -73,7 +73,12 @@
                      column="did"
                      fetchType="lazy"></association>
     </resultMap>
-    <select id="getEmpAndDeptByStep" resultMap="empAndDeptByStepResultMap">
+    <select id="getEmpAndDeptByStep" resultMap="empResultMap">
         SELECT * FROM emp WHERE eid = #{eid};
+    </select>
+
+
+    <select id="getDeptAndEmpByStep" resultType="Emp">
+        SELECT * FROM emp WHERE did = #{did};
     </select>
 </mapper>
