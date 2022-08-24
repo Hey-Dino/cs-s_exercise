@@ -1,0 +1,54 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Dino
+  Date: 2022/8/24
+  Time: 23:42
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<html>
+<head>
+    <title>更新数据</title>
+</head>
+<body>
+<h3>修改品牌信息</h3>
+<form action="/Brand_Demo_war/addBrand" method="post">
+    <table>
+        <tr>
+            <td>品牌名称:</td>
+            <td><input name="brandName" value="${brand.getBrandName()}"></td>
+        </tr>
+        <tr>
+            <td>企业名称:</td>
+            <td><input name="companyName" value="${brand.getCompanyName()}"></td>
+        </tr>
+        <tr>
+            <td>排序：</td>
+            <td><input name="ordered" value="${brand.getOrdered()}"></td>
+        </tr>
+
+        <tr>
+            <td>描述信息：</td>
+            <td><textarea rows="5" cols="20" name="description">${brand.getDescription()}</textarea></td>
+        </tr>
+
+        <tr>
+            <td>状态：</td>
+            <td>
+                <c:if test="${brand.getStatus() != 1}">
+                    <input type="radio" name="status" value="0" checked>禁用
+                    <input type="radio" name="status" value="1">启用<br>
+                </c:if>
+                <c:elseif>
+                    <input type="radio" name="status" value="0" >禁用
+                    <input type="radio" name="status" value="1" checked>启用<br>
+                </c:elseif>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
