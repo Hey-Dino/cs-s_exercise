@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset的使用</title>
+
+    <script src="https://unpkg.com/spacingjs" defer></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            background-clip: content-box;
+        }
+
+        body {
+            border: 10px solid deeppink;
+        }
+
+        .dad {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            margin: 0 auto;
+            background-color: skyblue;
+            border: 10px solid pink;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: orange;
+
+            font-size: 28px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dad">
+        <div class="son">I Love China! I Love China! I Love China! I Love China! I Love China! I Love China! I Love
+            China! I Love China!</div>
+    </div>
+
+    <script>
+        const dad = document.querySelector(".dad");
+        const son = document.querySelector(".son");
+
+        function showMousePosition() {
+            document.addEventListener("mousemove", function (e) {
+                console.log(e.pageX + " " + e.pageY);
+            });
+        }
+
+        // mouseover 和 mouseenter 的区别
+        dad.addEventListener("mouseover", () => {
+            console.log("鼠标经过dad盒子(冒泡)");
+        });
+
+        dad.addEventListener("mouseenter", () => {
+            console.log("鼠标经过dad盒子(不冒泡)");
+        });
+    </script>
+</body>
+
+</html>

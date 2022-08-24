@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>弹幕效果案例</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: "微软雅黑";
+            font-size: 62.5%;
+        }
+
+        .boxDom {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .boxDom .barrage-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 100px);
+        }
+
+        /* .boxDom .barrage-area ul {
+            position: relative;
+            height: 100%;
+            background-color: pink;
+        } */
+
+        .idDom {
+            width: 100%;
+            height: 100px;
+            background: #666;
+            position: fixed;
+            bottom: 0px;
+        }
+
+        .content {
+            display: inline-block;
+            width: 450px;
+            height: 40px;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+        }
+
+        .title {
+            display: inline;
+            font-size: 4em;
+            vertical-align: bottom;
+            color: #fff;
+        }
+
+        .text {
+            border: none;
+            width: 300px;
+            height: 30px;
+            padding: 0 10px;
+            border-radius: 5px;
+            font-size: 2.4em;
+        }
+
+        .btn {
+            width: 60px;
+            height: 30px;
+            background: #f90000;
+            border: none;
+            color: #fff;
+            font-size: 2.4em;
+        }
+
+        span {
+            /* width: 300px; */
+            /* height: 40px; */
+            position: absolute;
+            left: 100%;
+            /* overflow: hidden; */
+            /* color: #000; */
+            /* font-size: 4em; */
+            line-height: 1em;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+    </style>
+
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="boxDom" id="boxDom">
+        <div class="barrage-area"></div>
+        <div class="idDom" id="idDom">
+            <div class="content">
+                <p class="title">吐槽:</p>
+                <input type="text" class="text" id="text" />
+                <button type="button" class="btn" id="btn">发射</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        // 初始化弹幕区域的 宽度 和 高度
+        var areaHeight = $(".barrage-area").height();
+        var areaWidth = $(".barrage-area").width();
+        // 初始化弹幕颜色数组
+        const colors = ["skyblue", "grey", "pink", "orange", "green"];
+
+        // 动态获取弹幕区域的 宽度 和 高度
+        $(window).resize(function () {
+            areaWidth = $(".barrage-area").width();
+            areaHeight = $(".barrage-area").height();
+        });
+
+
+        $("#btn").on("click", function () {
+            // 弹幕内容
+            let content = $("#text").val().trim();
+            $("#text").val("");     // 清空输入框内容
+            // 弹幕字体大小
+            let fontSize = Math.floor(Math.random() * 20 + 20);
+            // 弹幕颜色
+            let colorIndex = parseInt(Math.random() * colors.length);
+            // 弹幕距离顶部的位置
+            let top = Math.random() * (areaHeight - fontSize);
+
+            // const span = $('<span></span>')
+
+            // span.text(content)
+            //     .css("fontSize", fontSize)
+            //     .css("top", top)
+            //     .css("color", colors[colorIndex])
+            //     .appendTo(".barrage-area");
+
+            // span.animate({ left: -span.width() }, 5000, "linear", function () {
+            //     // $(this).remove();
+            //     console.log($(this).width())
+            // })
+            // ;
+
+            const span = $('<span></span>')
+                .text(content)
+                .css("fontSize", fontSize)
+                .css("top", top)
+                .css("color", colors[colorIndex])
+                .appendTo(".barrage-area")
+
+            span.animate({ left: -(span.width()) }, 5000, "linear", function () {       // left: {-$(this).width()} 获得的是折叠前的宽度，无法实现效果
+                $(this).remove();
+            });
+        });
+
+        $("#text").on("keyup", function (e) {
+            if (e.keyCode == 13) {
+                $("#btn").click();
+            }
+        })
+    });
+</script>
+
+</html>

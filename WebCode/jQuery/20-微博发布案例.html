@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微博发布案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 450px;
+            height: 160px;
+            outline: none;
+            resize: none;
+            vertical-align: bottom;
+        }
+
+        ul {
+            width: 450px;
+            margin-left: 69px;
+        }
+
+        ul li {
+            display: none;
+            width: 100%;
+            height: 25px;
+            padding: 2px 0;
+            list-style: none;
+            border-bottom: 1px dashed #cccccc;
+        }
+
+        ul li .delBtn {
+            float: right;
+            padding: 0 5px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: red;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box" id="weibo">
+        <span>微博发布</span>
+        <textarea name="" id="txt" cols="30" rows="10"></textarea>
+        <button id="btn">发布</button>
+
+        <ul id="ul"></ul>
+    </div>
+
+    <script>
+        $(function () {
+            function sendMsg() {
+                // 获取去除前后空格后的输入框内容
+                let content = $("#txt").val().trim();
+
+                if (content == "") {
+                    alert("输入内容不能为空！")
+                } else {
+                    let li = $("<li></li>").text(content).append("<a class=\"delBtn\" href=\"javascript:;\">删除</a>");
+                    $("#ul").prepend(li);
+                    // 设置发布内容进入效果
+                    li.slideDown();
+                }
+
+                // 清空输入框内容
+                $("#txt").val("");
+            }
+
+            // 设置点击发送
+            $("#btn").click(sendMsg);
+            // 设置回车发送
+            $("#txt").keyup(function (e) {
+                if (e.keyCode == 13) {
+                    sendMsg();
+                }
+            });
+
+            // 设置删除事件
+            $("#ul").on("click", "a", function (e) {
+                $(this).parent().slideUp(function () {
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>
