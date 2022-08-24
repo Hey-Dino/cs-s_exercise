@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+    <div class="w" id="root">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" id="id" placeholder="ID">
+                <input type="text" class="form-control" id="book-name" placeholder="书籍名称">
+                <input type="text" class="form-control" id="author" placeholder="作者名称">
+                <input type="text" class="form-control" id="publisher" placeholder="出版社名称">
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2" id="add-btn">插入数据</button>
+        </form>
+
+        <!-- 图书展示表格 -->
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">书籍名称</th>
+                    <th scope="col">作者名称</th>
+                    <th scope="col">出版社名称</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        const id = document.querySelector("#id");
+        const bookName = document.querySelector("#book-name");
+        const author = document.querySelector("#author");
+        const publisher = document.querySelector("#publisher");
+        const addBtn = document.querySelector("#add-btn");
+        const tbody = document.querySelector("tbody");
+
+        getBooks();
+
+        function getBooks() {
+            // 发送get请求
+            const xhr = new XMLHttpRequest();
+            xhr.open("get", "http://127.0.0.1:80/api/getbooks");
+            xhr.send();
+
+            // 编辑获得数据
+            xhr.onreadystatechange = function () {
+                tbody.innerHTML = "";
+
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    let books = JSON.parse(xhr.responseText).data;
+
+                    let rows = [];
+                    books.forEach(book => {
+                        rows.push(`<tr><td>${book.id}</td><td>${book.bookname}</td><td>${book.author}</td><td>${book.publisher}</td><td><a href='javascript:;' class='del-Btn'>删除</a></td></tr>`);
+                    });
+                    tbody.innerHTML = rows.join("");
+                }
+            }
+
+            // 删除函数，使用事件委托
+            tbody.addEventListener("click", function (e) {
+                // 检查事件源是否为
+                if (e.target && e.target.nodeName == "A") {
+                    let a = e.target;
+                    let delId = a.parentNode.parentNode.children[0].innerText;
+
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("get", `http://127.0.0.1:80/api/delbook?id=${delId}`);
+                    xhr.send();
+
+                    // 更新图书信息
+                    getBooks();
+                }
+            });
+        }
+
+        addBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // 阻止默认行为
+
+            if (id.value == "" || bookName.value == "" || author.value == "" || publisher.value == "") {
+                alert("请补全信息后在点击“插入数据”")
+            } else {
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://127.0.0.1:80/api/addbook", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send(`id=${id.value}&bookname=${bookName.value}&author=${author.value}&publisher=${publisher.value}`);
+
+                getBooks();
+            }
+        });
+    </script>
+</body>
+
+</html>
