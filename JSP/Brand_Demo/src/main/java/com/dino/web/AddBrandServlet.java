@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/addBrand")
+@WebServlet("/addBrandServlet")
 public class AddBrandServlet extends HttpServlet {
     BrandService brandService = new BrandService();
 
@@ -29,7 +29,7 @@ public class AddBrandServlet extends HttpServlet {
         brandService.addBrand(new Brand(0, brandName, companyName, ordered, description, status));
 
         // 请求转发
-        req.getRequestDispatcher("/SelectAllServlet").forward(req, resp);
+        req.getRequestDispatcher("/selectAllServlet").forward(req, resp);
     }
 
     @Override

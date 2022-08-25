@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/selectAllServlet")
-public class SelectAllServlet extends HttpServlet {
+@WebServlet("/selectByIdServlet")
+public class SelectByIdServlet extends HttpServlet {
     BrandService brandService = new BrandService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 1.调用 BrandService 完成查询
-        List<Brand> brands = brandService.selectAll();
-        // 2.存入 request 域中
-        req.setAttribute("brands", brands);
-        // 3.转发至 brand.jsp
-        req.getRequestDispatcher("/brand.jsp").forward(req, resp);
+        // 从请求参数中获取 品牌ID
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        // 根据品牌ID，查询品牌信息
+        Brand brand = brandService.selectById(id);
+        // 将查询到的品牌信息，插入到请求中
+        req.setAttribute("brand", brand);
+        // 携带品牌信息，将请求转发到 updateBrand.jsp
+        // updateBrand.jsp 可以根据该品牌信息，绘制页面
+        req.getRequestDispatcher("/updateBrand.jsp").forward(req, resp);
     }
 
     @Override

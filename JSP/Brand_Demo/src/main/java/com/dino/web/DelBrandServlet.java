@@ -16,10 +16,12 @@ public class DelBrandServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 从请求参数中获取 品牌ID
         Integer id = Integer.parseInt(req.getParameter("id"));
+        // 根据品牌ID，删除品牌信息
         brandService.delById(id);
 
-        req.getRequestDispatcher("/SelectAllServlet").forward(req, resp);
+        req.getRequestDispatcher("/selectAllServlet").forward(req, resp);
     }
 
     @Override

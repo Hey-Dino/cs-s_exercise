@@ -6,14 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>更新数据</title>
 </head>
 <body>
 <h3>修改品牌信息</h3>
-<form action="/Brand_Demo_war/addBrand" method="post">
+<form action="/Brand_Demo_war/updateBrandServlet" method="post">
     <table>
+        <input type="hidden" name="id" value="${brand.getId()}"/>
         <tr>
             <td>品牌名称:</td>
             <td><input name="brandName" value="${brand.getBrandName()}"></td>
@@ -24,7 +27,7 @@
         </tr>
         <tr>
             <td>排序：</td>
-            <td><input name="ordered" value="${brand.getOrdered()}"></td>
+            <td><input type="number" name="ordered" value="${brand.getOrdered()}"></td>
         </tr>
 
         <tr>
@@ -39,10 +42,10 @@
                     <input type="radio" name="status" value="0" checked>禁用
                     <input type="radio" name="status" value="1">启用<br>
                 </c:if>
-                <c:elseif>
+                <c:if test="${brand.getStatus() == 1}">
                     <input type="radio" name="status" value="0" >禁用
                     <input type="radio" name="status" value="1" checked>启用<br>
-                </c:elseif>
+                </c:if>
             </td>
         </tr>
         <tr>

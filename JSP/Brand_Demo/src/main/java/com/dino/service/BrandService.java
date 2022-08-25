@@ -46,4 +46,12 @@ public class BrandService {
 
         return brand;
     }
+
+    public void updateBrand(Brand brand) {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+        mapper.updateBrand(brand);
+
+        sqlSession.close();
+    }
 }

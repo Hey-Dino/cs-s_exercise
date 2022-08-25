@@ -52,7 +52,9 @@
                 <c:if test="${brand.getStatus() != 1}">
                     <td>禁用</td>
                 </c:if>
-                <td><a href="updateBrandServlet?id=${brand.getId()}" class="editBtn">编辑</a>&nbsp;<a href="delBrandServlet?id=${brand.getId()}" class="delBtn">删除</a></td>
+                <td><a href="selectByIdServlet?id=${brand.getId()}" class="editBtn">编辑</a>
+                    <a href="delBrandServlet?id=${brand.getId()}" class="delBtn">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

@@ -12,7 +12,7 @@
 </head>
 <body>
     <h3>添加品牌</h3>
-    <form action="/Brand_Demo_war/addBrand" method="post">
+    <form action="/Brand_Demo_war/addBrandServlet" method="post">
         <table>
             <tr>
                 <td>品牌名称:</td>
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>排序：</td>
-                <td><input name="ordered"></td>
+                <td><input type="number" name="ordered"></td>
             </tr>
 
             <tr>
