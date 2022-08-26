@@ -1,0 +1,169 @@
+/* 清除浮动 */
+.clear {
+    clear: both;
+}
+
+.clear:before,
+.clear:after {
+    content: "";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+/*  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url("../imgs/reg_bg_min.jpg") no-repeat;
+}
+
+/* table {
+    border-collapse: collapse;
+    border-spacing: 0;
+} */
+
+.form-div {
+    position: absolute;
+    top: 100px;
+    right: 10%;
+    width: 424px;
+    padding: 50px 30px;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.5), 0px 0px 15px rgba(75, 75, 75, 0.3);
+    background-color: rgba(255, 255, 255, 0.27);
+    border: 1px solid #aaa;
+    border-radius: 10px;
+}
+
+.form-div table {
+    width: 100%;
+    color: rgba(64, 64, 64, 1.00);
+}
+
+#reg-form table tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+#reg-form table .inputs {
+    position: relative;
+    vertical-align: middle;
+}
+
+#reg-form table td:first-child {
+    color: white;
+    font-size: 20px;
+}
+
+.form-div input {
+    padding: 10px;
+    line-height: 20px;
+    box-shadow: inset 0 2px 5px #eee;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    color: #333333;
+    font-size: 16px;
+    transition: all .1s;
+}
+
+.form-div #username,
+.form-div #password {
+    width: 280px;
+}
+
+.form-div #checkCode {
+    width: 100px;
+    margin-right: 7px;
+}
+
+.form-div #checkCodeImg {
+    width: 100px;
+    height: 50px;
+}
+
+
+.reg-content {
+    color: aliceblue;
+}
+
+.form-div input[type="checkbox"] {
+    margin: 20px 0 20px 10px;
+}
+
+.form-div table img {
+    vertical-align: middle;
+}
+
+.footer {
+    color: rgba(64, 64, 64, 1.00);
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #50afeb;
+    outline: none;
+}
+
+input[type="button"],
+input[type="submit"] {
+    min-width: 80px;
+    padding: 7px 15px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(75, 75, 75, 0.3);
+    overflow: hidden;
+    color: #FFF;
+    background-color: #3c6db0;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #5a88c8;
+}
+
+input[type="button"]:active,
+input[type="submit"]:active {
+    background-color: #5a88c8;
+}
+
+.err_msg {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 16px;
+    color: red;
+}
+
+#password_err,
+#tel_err {
+    padding-right: 195px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+#reg_btn {
+    width: 285px;
+    height: 45px;
+}
