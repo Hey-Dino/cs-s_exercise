@@ -31,7 +31,7 @@
                     <input id="remember" name="remember" type="checkbox" value="1">
                 </c:if>
                 <span id="remPwd">记住密码</span>
-                <a href="reg.html" id="regBtn">没有账号？点击注册</a>
+                <a href="register.jsp" id="regBtn">没有账号？点击注册</a>
             </p>
 
             <div id="subDiv">

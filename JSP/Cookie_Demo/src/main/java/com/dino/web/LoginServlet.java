@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
+/*
+* 用户验证用户登录请求
+* */
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
