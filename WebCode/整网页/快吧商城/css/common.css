@@ -206,7 +206,7 @@
 }
 
 .dropdown .dd li {
-    margin-left: 1px;
+    /* margin-left: 1px; */
     padding: 0 11px;
     font-size: 14px;
     color: #fff;

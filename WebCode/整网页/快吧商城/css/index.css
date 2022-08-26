@@ -520,7 +520,6 @@
     height: 360px;
     margin-bottom: 20px;
     border-top: 2px solid #c81623;
-    background-color: pink;
 }
 
 .tab_list_item>ul li {
@@ -777,4 +776,29 @@
     font-size: 12px;
     font-weight: bold;
     color: #b9b9b9;
+}
+
+/*电梯导航*/
+.fixedTool {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -676px;
+    width: 66px;
+    background-color: #fff;
+    /* display: none; */
+}
+
+.fixedTool li {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.fixedTool .current {
+    background-color: #c81623;
+    color: #fff;
 }

@@ -26,10 +26,9 @@ window.addEventListener('load', function () {
             // 添加小圆圈实现跳转效果
             var index = this.getAttribute('index');
             // 同步num、circle的值
-            num = circle = index;
+            num = circle = Number(index);
             // var ulMove = ul.children[index].offsetLeft;
             var ulMove = index * imgWidth;
-            console.log(ulMove);
 
             animate(ul, -ulMove);
         })
@@ -56,7 +55,7 @@ window.addEventListener('load', function () {
         timer = setInterval(function () {
             // 手动调用点击事件
             arrow_r.click();
-        }, 2000);
+        }, 3000);
     })
     // 箭头实现跳转效果
     var num = 0;  // 用于记录当前所展示图片的顺序
@@ -105,5 +104,52 @@ window.addEventListener('load', function () {
     var timer = setInterval(function () {
         // 手动调用点击事件
         arrow_r.click();
-    }, 2000);
+    }, 3000);
+
+
+    /* 
+    电梯导航
+    */
+    var toolTop = $('.fun-area').offset().top;
+
+    // 节流阀
+    var flag = true;
+    // 控制页面导航的滑入和滑出
+    function toggleTool() {
+        if ($(document).scrollTop() >= toolTop) {
+            $('.fixedTool').stop().slideDown();
+        } else {
+            $('.fixedTool').stop().slideUp();
+        }
+    };
+    // 避免页面刷新时不显示页面导航
+    toggleTool();
+
+    $(window).scroll(function () {
+        toggleTool();
+        // 页面导航随滚动变化
+        if (flag) {
+            $('.floor>div').each(function (i, ele) {
+                if ($(document).scrollTop() >= $(ele).offset().top) {
+                    $('.fixedTool ul li').eq(i).addClass('current').siblings('li').removeClass('current');
+                }
+            });
+        }
+    });
+
+    $('.fixedTool ul li').click(function () {
+        flag = false;
+
+        var index = $(this).index();
+        $(this).addClass('current').siblings('li').removeClass('current');
+
+        $('body, html').stop().animate({
+            scrollTop: $('.floor>div').eq(index).offset().top
+        }, function () {
+            flag = true
+        });
+
+        // flag在此处更改是无效的，应该js是先赋指后执行animate函数
+        // flag = true;
+    });
 })
