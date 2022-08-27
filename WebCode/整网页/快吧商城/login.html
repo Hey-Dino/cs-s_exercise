@@ -10,9 +10,10 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- 引入初始化css样式 -->
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/base.css">
     <!-- 引入自身的css样式 -->
     <link rel="stylesheet" href="css/login.css">
+
+    <script src="./js/login.js"></script>
 </head>
 
 <body>
@@ -26,37 +27,35 @@
     <div class="loginarea">
         <div class="w">
             <div class="log_form">
-                <form action="#" method="post">
-                    <ul class="clearfix">
-                        <li>
-                            <a href="#" class="form1">扫描登录</a><a href="#" class="form2 style_red">账户登录</a>
-                        </li>
-                        <li>
-                            公共场所不建议自动登录，以免账号丢失
-                        </li>
-                        <li>
-                            <div class="id_icon"></div>
-                            <input type="text" name="" id="" class="login_id" placeholder="邮箱/用户名/手机号">
-                        </li>
-                        <li>
-                            <div class="pwd_icon"></div>
-                            <input type="password" name="" id="" class="login_pwd" placeholder="请输入密码">
-                        </li>
-                        <li>
-                            <input type="checkbox" name="" id=""><span>自动登录</span><a href="#" class="forget_pwd">忘记密码？</a>
-                        </li>
-                        <li>
-                            <input type="submit" value="登录" class="login_sub">
-                        </li>
-                        <li>
-                            <a href="#" class="login_qq"></a>
-                            <a href="#" class="login_sina"></a>
-                            <a href="#" class="login_alipay"></a>
-                            <a href="#" class="login_wechat"></a>
-                            <a href="register.html" class="register">立即注册</a>
-                        </li>
-                    </ul>
-                </form>
+                <ul class="clearfix">
+                    <li>
+                        <a href="#" class="form1">扫描登录</a><a href="#" class="form2 style_red">账户登录</a>
+                    </li>
+                    <li>
+                        公共场所不建议自动登录，以免账号丢失
+                    </li>
+                    <li class="id_ids" id="id1">
+                        <div class="id_icon"></div>
+                        <input type="text" name="" id="" class="login_id" placeholder="邮箱/用户名/手机号" style="width:250px">
+                    </li>
+                    <li class="id_ids" id="id2">
+                        <div class="pwd_icon"></div>
+                        <input class="login_pwd" type="password" name="" id="" placeholder="请输入密码" style="width:250px">
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" id=""><span>自动登录</span><a href="#" class="forget_pwd">忘记密码？</a>
+                    </li>
+                    <li>
+                        <input type="button" value="登录" class="login_sub">
+                    </li>
+                    <li>
+                        <a href="#" class="login_qq"></a>
+                        <a href="#" class="login_sina"></a>
+                        <a href="#" class="login_alipay"></a>
+                        <a href="#" class="login_wechat"></a>
+                        <a href="register.html" class="register">立即注册</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

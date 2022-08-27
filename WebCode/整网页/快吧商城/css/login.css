@@ -44,6 +44,14 @@
     margin-top: 18px;
 }
 
+.log_form ul .id_ids {
+    display: flex;
+}
+
+.log_form ul .id_ids input {
+    flex: 1;
+}
+
 ul li:nth-child(1) a {
     display: inline-block;
     margin-bottom: 18px;
@@ -57,8 +65,8 @@ ul li:nth-child(1) a {
 }
 
 .form2 {
-    padding-left: 70px;
-    padding-right: 8px;
+    padding-left: 60px;
+    /* padding-right: 8px; */
 }
 
 ul li:nth-child(2) {

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/common.css">
     <!-- 引入自身样式 -->
     <link rel="stylesheet" href="css/shopCart.css">
+    <script src = "./js/shopCart.js"></script>
 </head>
 
 <body>
@@ -88,16 +89,16 @@
         <div class="cart-tbody">
             <div class="shop">
                 <div class="t-checkbox">
-                    <input type="checkbox" class="cbtn">
+                    <input value = "全选" type="checkbox" class="cbtn tt" onclick="checkbox(this)">
                     <span class="shop-name rb">快吧自营</span>
                 </div>
             </div>
-            <div class="item-list">
-                <ul>
+            <div class="item-list ss">
+                <ul class="ul">
                     <li class="">
                         <div class="item-item">
                             <div class="t-checkbox">
-                                <input type="checkbox" class="cbtn">
+                                <input type="checkbox" class="cbtn" onclick="box(this)">
                                 <img src="upload/shop-cart-goods-1.png" alt="" class="">
                             </div>
                             <div class="t-goods">
@@ -105,18 +106,18 @@
                                 <a href="#" class="g-extend">购买礼品包装</a>
                             </div>
                             <div class="t-props">尺码：Thunderbolt至千兆</div>
-                            <div class="t-price">248.00</div>
+                            <div class="t-price">248.34</div>
                             <div class="t-quantity">
                                 <button class="cart-num-dec">-</button>
                                 <div class="cart-input">
-                                    <input type="text" min="1" max="200" value="1" class="cart-input-o">
+                                    <input class="cart-input-o" type="text" min="1" max="200" value="1" >
                                 </div>
                                 <button class="cart-num-inc">+</button>
                                 <p class="cart-stock">有货</p>
                             </div>
-                            <div class="t-sum">248.00</div>
+                            <div class="t-sum">248.34</div>
                             <div class="t-action">
-                                <a href="#" class="del">删除</a>
+                                <a href="#" class="del dd">删除</a>
                                 <a href="#" class="mov">移到我的关注</a>
                             </div>
                         </div>
@@ -132,7 +133,7 @@
                         </div>
                         <div class="item-item">
                             <div class="t-checkbox">
-                                <input type="checkbox" class="cbtn">
+                                <input type="checkbox" class="cbtn" onclick="box(this)">
                                 <img src="upload/shop-cart-goods-2.png" alt="" class="">
                             </div>
                             <div class="t-goods">
@@ -144,7 +145,7 @@
                             <div class="t-quantity">
                                 <button class="cart-num-dec">-</button>
                                 <div class="cart-input">
-                                    <input type="text" min="1" max="200" value="1" class="cart-input-o">
+                                    <input type="text" min="1" max="200" value="1" class="cart-input-o input">
                                 </div>
                                 <button class="cart-num-inc">+</button>
                                 <p class="cart-stock">有货</p>
@@ -169,7 +170,7 @@
                     <li class="item-select">
                         <div class="item-item">
                             <div class="t-checkbox">
-                                <input type="checkbox" class="cbtn" checked="checked">
+                                <input type="checkbox" class="cbtn" onclick="box(this)">
                                 <img src="upload/shop-cart-goods-3.png" alt="" class="">
                             </div>
                             <div class="t-goods">
@@ -177,7 +178,7 @@
                                 <a href="#" class="g-extend">购买礼品包装</a>
                             </div>
                             <div class="t-props">型号：A2200</div>
-                            <div class="t-price">19.00</div>
+                            <div class="t-price">19.45</div>
                             <div class="t-quantity">
                                 <button class="cart-num-dec">-</button>
                                 <div class="cart-input">
@@ -186,7 +187,7 @@
                                 <button class="cart-num-inc">+</button>
                                 <p class="cart-stock">有货</p>
                             </div>
-                            <div class="t-sum">19.00</div>
+                            <div class="t-sum">19.45</div>
                             <div class="t-action">
                                 <a href="#" class="del">删除</a>
                                 <a href="#" class="mov">移到我的关注</a>
@@ -196,7 +197,7 @@
                     <li class="">
                         <div class="item-item">
                             <div class="t-checkbox">
-                                <input type="checkbox" class="cbtn">
+                                <input type="checkbox" class="cbtn" onclick="box(this)">
                                 <img src="upload/shop-cart-goods-1.png" alt="" class="">
                             </div>
                             <div class="t-goods">
@@ -216,14 +217,14 @@
                             <div class="t-sum">248.00</div>
                             <div class="t-action">
                                 <a href="#" class="del">删除</a>
-                                <a href="#" class="mov">移到我的关注</a>
+                                <a href="#" class="mov mm">移到我的关注</a>
                             </div>
                         </div>
                     </li>
                     <li class="">
                         <div class="item-item">
                             <div class="t-checkbox">
-                                <input type="checkbox" class="cbtn">
+                                <input type="checkbox" class="cbtn" onclick="box(this)">
                                 <img src="upload/spec-img.png" alt="" class="">
                             </div>
                             <div class="t-goods">
@@ -253,7 +254,7 @@
         <div class="cart-tbody">
             <div class="shop">
                 <div class="t-checkbox">
-                    <input type="checkbox" class="cbtn">
+                    <input type="checkbox" class="cbtn" onclick="checkbox(this)">
                     <span class="shop-name">神州数码专营店</span>
                 </div>
             </div>
@@ -336,7 +337,7 @@
                         <span class="td">-¥20.00</span>
                     </div>
                 </div>
-                <b>结&nbsp;算</b>
+                <a href="orderSubmit.html">结&nbsp;算</a>
             </div>
         </div>
 
@@ -512,5 +513,4 @@
         </div>
     </footer>
 </body>
-
 </html>

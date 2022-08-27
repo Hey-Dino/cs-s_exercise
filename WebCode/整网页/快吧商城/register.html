@@ -33,14 +33,14 @@
                 </div>
             </h3>
             <div class="reg_form">
-                <form action="" method="post">
+                <form action="login.html" method="post">
                     <ul>
                         <li>
-                            <label for="tel">手机号：</label><input type="text" id="tel" autofocus><span class="error"
-                                id="tel-error"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
+                            <label for="tel">手机号：</label><input type="text" id="tel" autofocus autocomplete="off">
+                            <span class="error" id="tel-error"><i class="error_icon"></i>手机号码格式不正确，请重新输入</span>
                         </li>
                         <li>
-                            <label for="auto-code">短信验证码：</label><input type="text" id="auto-code"><span
+                            <label for="auto-code">短信验证码：</label><input type="text" id="auto-code" autocomplete="off"><span
                                 class="success"><i class="success_icon"></i>短语验证码输入正确</span>
                         </li>
                         <li>
@@ -51,9 +51,9 @@
                             <label for="pwd2">确认密码：</label><input type="password" id="pwd2"><span class="error"
                                 id="pwd2-error"><i class="error_icon"></i>密码不一致，请重新输入</span>
                         </li>
-                        <li class="safe">
+                        <!-- <li class="safe">
                             <span>安全程度</span><em class="ruo">弱</em><em class="zhong">中</em><em class="qiang">强</em>
-                        </li>
+                        </li> -->
                         <li>
                             <input type="checkbox" name="" id="" checked="checked">统一协议并注册<a href="#">《如果是用户协议》</a>
                         </li>

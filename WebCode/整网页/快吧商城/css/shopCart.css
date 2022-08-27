@@ -151,10 +151,13 @@
 .item-list ul li .item-item>div {
     float: left;
 }
-
-.item-select {
+.item-list ul li:hover{
     background-color: #feedef;
 }
+
+/* .item-select {
+    background-color: #feedef;
+} */
 
 .item-list .item-head {
     height: 41px;
@@ -384,7 +387,7 @@
     color: #e60012;
 }
 
-.option-box .right b {
+.option-box .right a {
     float: left;
     width: 110px;
     height: 100%;
@@ -394,6 +397,12 @@
     font-size: 16px;
     color: #fff;
 }
+/*
+.option-box .right b a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}*/
 
 /* option-box End */
 
@@ -506,16 +515,18 @@
 
 .tab-coin .info {
     overflow: hidden;
+    width: 1000px;
     height: 100%;
+    margin: 0 auto;
     /* background-color: pink; */
 }
 
 .tab-coin .info ul {
     overflow: hidden;
-    width: 1000px;
+    width: 1250px;
     height: 100%;
     margin: 0 auto;
-    border: 1px dashed #cacaca;
+    border: 1px dashed #dac3c3;
 }
 
 .tab-coin .info ul li {
@@ -526,7 +537,9 @@
     border-right: 1px dashed #cacaca;
     text-align: center;
 }
-
+.tab-coin .info ul li:hover {
+    background-color: #feedef;;
+}
 .tab-coin .info ul li:last-child {
     border-right: none;
 }

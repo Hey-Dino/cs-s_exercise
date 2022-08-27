@@ -157,9 +157,9 @@
 
             const span = $('<span></span>')
                 .text(content)
-                .css("fontSize", fontSize)
-                .css("top", top)
-                .css("color", colors[colorIndex])
+                .css({"fontSize":fontSize, "top":top, "color":colors[colorIndex]})
+                // .css("top", top)
+                // .css("color", colors[colorIndex])
                 .appendTo(".barrage-area")
 
             span.animate({ left: -(span.width()) }, 5000, "linear", function () {       // left: {-$(this).width()} 获得的是折叠前的宽度，无法实现效果

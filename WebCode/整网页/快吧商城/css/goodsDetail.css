@@ -1,4 +1,5 @@
 /* crumb */
+
 .crumb {
     height: 18px;
     margin-top: 25px;
@@ -12,7 +13,9 @@
     padding: 0 10px;
 }
 
+
 /* product-intro */
+
 .product-intro {
     margin-bottom: 30px;
 }
@@ -86,6 +89,15 @@
     border-color: #d54f58;
 }
 
+.spec-list ul li img {
+    width: 56px;
+    height: 56px;
+}
+
+.spec-list ul .spec-list-over {
+    border-color: #d54f58;
+}
+
 .spec-list .spec-forward,
 .spec-list .spec-backward {
     position: absolute;
@@ -105,7 +117,9 @@
     background: url(../images/disabled-next.png);
 }
 
+
 /* preview-info */
+
 .preview-info span {
     float: left;
     margin-right: 35px;
@@ -146,7 +160,9 @@
     margin-top: -2px;
 }
 
+
 /* itemInfo-wrap */
+
 .itemInfo-wrap {
     float: left;
     width: 720px;
@@ -255,31 +271,33 @@
     line-height: 34px;
 }
 
-.choose-attrs ul li a,
-.choose-type ul li a,
-.choose-suits ul li a {
+.choose-attrs ul li,
+.choose-type ul li,
+.choose-suits ul li {
     float: left;
     display: block;
     padding: 0 13px;
     margin-right: 8px;
     border: 1px solid #eee;
     background-color: #f7f7f7;
+    cursor: pointer;
 }
 
-.choose-attrs ul li a:hover,
-.choose-type ul li a:hover,
-.choose-suits ul li a:hover {
+.choose-attrs ul li:hover {
     color: #666;
     border-color: #c81623;
+}
+
+.choose-attrs .choose-box {
+    color: #666;
+    border: 1px solid #c81623;
 }
 
 .choose-attr-1 {
     line-height: 43px;
 }
 
-.choose-attrs>div,
-.choose-type,
-.choose-suits {
+.choose-attrs>div {
     margin-bottom: 7px;
 }
 
@@ -316,7 +334,6 @@
     line-height: 22px;
     background-color: #f1f1f1;
     border: 1px solid #d0d0d0;
-
 }
 
 .choose-amount .btn-reduce {
@@ -329,6 +346,7 @@
     line-height: 22px;
     background-color: #f1f1f1;
     border: 1px solid #d0d0d0;
+    cursor: not-allowed;
 }
 
 .choose-btns>a {
@@ -342,7 +360,9 @@
     background-color: #c81623;
 }
 
+
 /* 详情页 */
+
 .aside {
     float: left;
     width: 210px;
@@ -443,7 +463,9 @@
     color: #333;
 }
 
+
 /* fitting */
+
 .fitting {
     float: right;
     width: 980px;
@@ -468,6 +490,11 @@
 .tab-main ul li a {
     display: block;
     padding: 0 20px;
+}
+
+.tab-main ul .bc a {
+    background-color: #c81623;
+    color: #fff;
 }
 
 .tab-main ul li a:hover {
@@ -519,7 +546,9 @@
     border: 1px solid #c81622;
 }
 
+
 /* suits */
+
 .suits {
     float: left;
     margin-left: 38px;
@@ -539,6 +568,13 @@
 .suits ul li img {
     width: 132px;
     height: 132px;
+}
+
+.suits ul li p {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .suits ul li .prese {
@@ -615,6 +651,7 @@
 
 
 /* detail */
+
 .detail {
     float: right;
     width: 980px;
@@ -656,7 +693,64 @@
     width: 100%;
 }
 
+.detail div:nth-child(n+3) {
+    display: none;
+}
+
+.spec ul {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.spec ul li {
+    padding: 12px 0;
+    border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.spec ul li h3,
+.spec ul li dl,
+.spec ul li dt,
+.spec ul li dd {
+    display: inline-block;
+    font-size: 12px;
+    color: rgb(156, 157, 158);
+}
+
+.spec ul li dl>dl {
+    display: block;
+}
+
+.spec ul li h3 {
+    width: 110px;
+    font-weight: 400;
+    vertical-align: top;
+    text-align: right;
+}
+
+.spec ul li dt {
+    padding-right: 5px;
+    width: 160px;
+    text-align: right;
+}
+
+.spec ul li dd {
+    padding-left: 50px;
+    text-align-last: left;
+}
+
+.afterService {
+    width: 100%;
+    text-align: center;
+}
+
+.afterService img {
+    width: 600px;
+    vertical-align: middle;
+}
+
+
 /* guess-love */
+
 .guess-love {
     height: 337px;
     margin-bottom: 20px;

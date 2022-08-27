@@ -116,7 +116,7 @@ window.addEventListener('load', function () {
     var flag = true;
     // 控制页面导航的滑入和滑出
     function toggleTool() {
-        if ($(document).scrollTop() >= toolTop) {
+        if ($(document).scrollTop() >= toolTop - 1) {
             $('.fixedTool').stop().slideDown();
         } else {
             $('.fixedTool').stop().slideUp();
@@ -130,7 +130,7 @@ window.addEventListener('load', function () {
         // 页面导航随滚动变化
         if (flag) {
             $('.floor>div').each(function (i, ele) {
-                if ($(document).scrollTop() >= $(ele).offset().top) {
+                if ($(document).scrollTop() >= $(ele).offset().top - 2) {
                     $('.fixedTool ul li').eq(i).addClass('current').siblings('li').removeClass('current');
                 }
             });
