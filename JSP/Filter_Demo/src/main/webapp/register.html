@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎注册</title>
+
+    <link rel="stylesheet" href="css/register.css">
+
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="form-div">
+        <div class="reg-content">
+            <h1>欢迎注册</h1>
+            <span>已有帐号？</span> <a href="login.html">登录</a>
+        </div>
+        <form id="reg-form" action="/registerServlet" method="post">
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td class="inputs">
+                        <input name="username" type="text" id="username" autocomplete="off">
+                        <br>
+                        <span id="username_err" class="err_msg">用户名太受欢迎</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密　码</td>
+                    <td class="inputs">
+                        <input name="password" type="password" id="password">
+                        <br>
+                        <span id="err" class="err_msg">用户名、密码不能为空</span>
+                        <!--<span id="password_err" class="err_msg" style="display: none">密码格式有误</span>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>验证码</td>
+                    <td class="inputs">
+                        <input type="text" name="checkCode" id="checkCode" autocomplete="off">
+                        <img src="/checkCodeServlet" id="checkCodeImg">
+                        <a href="javascript:;" id="changeCheckCodeImg">换一张？</a>
+                        <span id="checkCode_err" class="err_msg">验证码为空</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttons">
+                <input value="注&nbsp;册" type="submit" id="reg_btn">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(function () {
+            $("#reg_btn").on("click", function (e) {
+                // 取消默认事件
+                e.preventDefault();
+
+                // 获取用户姓名、密码、验证码等信息
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var checkCode = $("#checkCode").val();
+
+                if (username == "" || password == "") {
+                    $("#err").show();
+                    return;
+                }
+
+                if (checkCode == "") {
+                    $("#checkCode_err").text("验证码不能为空!").show();
+                    return;
+                }
+
+                $.post({
+                    url: "http://localhost:8080/registerServlet",
+                    data: {
+                        username: username,
+                        password: password,
+                        checkCode: checkCode
+                    },
+                    success: function (res) {
+                        if (res == "1") {
+                            $("#checkCode_err").text("验证码有误!").show();
+                        } else if (res == "0") {
+                            window.location.href = "http://localhost:8080/login.html"
+                        }
+                    }
+                })
+            });
+
+
+            $("#username").on("blur", function () {
+                $.post({
+                    url: "http://localhost:8080/selectUser",
+                    data: {
+                        username: $(this).val()
+                    },
+                    success: function (res) {
+                        if (res == "1") {
+                            $("#username_err").show();
+                        } else {
+                            $("#username_err").hide();
+                        }
+                    }
+                });
+            });
+
+            $("#changeCheckCodeImg").on("click", function () {
+                // 路径后面添加时间戳的目的是避免浏览器进行缓存静态资源
+                $("#checkCodeImg").prop("src", "/checkCodeServlet?" + new Date().getMilliseconds());
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

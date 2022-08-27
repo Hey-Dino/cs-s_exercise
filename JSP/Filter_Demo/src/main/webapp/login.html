@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="loginDiv">
+        <form action="" id="form" method="post">
+            <h1 id="loginMsg">登录系统</h1>
+            <p>用户名:<input id="username" name="username" type="text"></p>
+            <p>密　码:<input id="password" name="password" type="password"></p>
+            <div id="err">用户名或密码不正确</div>
+            <p>
+                <input id="remember" name="remember" type="checkbox"><span id="remPwd">记住密码</span>
+                <a href="reg.html" id="regBtn">没有账号？点击注册</a>
+            </p>
+
+            <div id="subDiv">
+                <input type="submit" class="button" id="submit_btn" value="登陆">
+                <input type="reset" class="button" id="reset_btn" value="重置">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(function () {
+            $("#submit_btn").on("click", function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                if (username == "" || password == "") {
+                    $("#err").text("用户名或密码不能为空!").show();
+                    return;
+                }
+
+                $.post({
+                    url: "http://localhost:8080/loginServlet",
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    success: function (res) {
+                        if (res == "1") {
+                            $("#err").text("用户名或密码错误!").show();
+                        } else if (res == "0") {
+                            window.location.href = "http://localhost:8080/index.jsp"
+                        }
+                    }
+                })
+            });
+
+            $("#remember").on("click", function () {
+                var isChecked = $(this).prop("checked");
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                if (isChecked) {
+                    document.cookie = "username=" + username + "; password=" + "password";
+                } else {
+                    document.cookie = "";
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
