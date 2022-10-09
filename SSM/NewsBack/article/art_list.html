@@ -22,8 +22,8 @@
                 <div class="layui-form-item layui-inline">
                     <select name="state">
                         <option value="">所有状态</option>
-                        <option value="已发布">已发布</option>
-                        <option value="草稿">草稿</option>
+                        <option value="0">已发布</option>
+                        <option value="1">草稿</option>
                     </select>
                 </div>
                 <div class="layui-form-item layui-inline">
@@ -61,8 +61,8 @@
         <tr>
             <td>{{$value.title}}</td>
             <td>{{$value.cate_name}}</td>
-            <td>{{$value.pub_date|dataFormat}}</td>
-            <td>{{$value.state}}</td>
+            <td>{{$value.pub_date|dateFormated}}</td>
+            <td>{{$value.state|stateFormated}}</td>
             <td>
                 <button type="button" class="layui-btn layui-btn-xs">编辑</button>
                 <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">删除</button>

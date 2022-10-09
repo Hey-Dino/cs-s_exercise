@@ -19,7 +19,7 @@
             <!-- form 表单区域 -->
             <form class="layui-form" lay-filter="formUserInfo">
                 <!-- 这是隐藏域 -->
-                <input type="hidden" name="id" value="" />
+                <input type="hidden" name="id" />
                 <div class="layui-form-item">
                     <label class="layui-form-label">登录名称</label>
                     <div class="layui-input-block">
@@ -37,7 +37,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户邮箱</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱"
+                        <input type="email" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱"
                             autocomplete="off" class="layui-input" />
                     </div>
                 </div>
