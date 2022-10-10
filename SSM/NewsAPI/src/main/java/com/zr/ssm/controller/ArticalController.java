@@ -29,13 +29,14 @@ public class ArticalController {
         Result result = new Result(0, "add artical ok");
         Artical artical = new Artical(title, cate_id, content, state);
         try {
-            //根据上下文获取根目录getServletContext()
+            // 根据上下文获取根目录getServletContext()
             String realPath = request.getSession().getServletContext().getRealPath("/");
-            //利用UUID生成文件名
+            // 利用UUID生成文件名
             String fileName = UUID.randomUUID().toString();
-            //在指定目录下生成一个文件
+            // 在指定目录下生成一个文件
             File file = new File(realPath + "uploads/" + fileName);
-            //将前端传过来的图片转换为文件并放在服务器中
+
+            // 将前端传过来的图片转换为文件并放在服务器中
             cover_img.transferTo(file);
             //获取token中的用户信息中的id补充作者id
             Integer id = (Integer) request.getAttribute("userId");
@@ -43,23 +44,25 @@ public class ArticalController {
             artical.setAuthor_id(id);
             artical.setCover_img(imgUrl);
 
+            System.out.println("~@@@~ " + artical);
             Boolean flag = articalService.addArtical(artical);
             if (!flag) {
                 result.setStatus(1);
                 result.setMessage("add artical ok");
             }
         } catch (IOException e) {
-            //捕获系统异常转换为自定义异常
+            // 捕获系统异常转换为自定义异常
             throw new SystemException("uploads fail", ExType.SystemIOException);
         }
         return result;
     }
 
     @GetMapping("/list")
-    public Result getArtical(Integer pagenum, Integer pagesize, Integer cate_id, String state) throws UnsupportedEncodingException {
+    public Result getArtical(Integer pageNo, Integer pageSize, Integer cate_id, String state) throws UnsupportedEncodingException {
         Result result;
 
-        List<Object> data = articalService.getArtical(pagenum, pagesize, cate_id, state);
+        List<Object> data = articalService.getArtical(pageNo, pageSize, cate_id, state);
+
         if (data != null) {
             result = new Result(200, "Query all artical successfully.", data.get(0));
             result.setTotal((Integer) data.get(1));
@@ -72,23 +75,42 @@ public class ArticalController {
 
     @GetMapping("/delete/{id}")
     public Result deleteArtical(@PathVariable Integer id) {
-        Result result = new Result(0, "delete artical ok");
+        Result result;
+
         Boolean flag = articalService.deleteArtical(id);
-        if (!flag) {
-            result.setStatus(1);
-            result.setMessage("delete artical fail");
+        if (flag) {
+            result = new Result(200, "Delete artical successfully.");
+        } else {
+            result = new Result(201, "Delete artical failed.");
         }
+
         return result;
     }
 
     @GetMapping("/{id}")
     public Result getOneArtical(@PathVariable Integer id) {
-        Result result = new Result(0, "query one artical ok");
-        Artical oneArtical = articalService.getOneArtical(id);
-        if (oneArtical == null) {
+        Result result;
+
+        Artical artical = articalService.getOneArtical(id);
+        if (artical != null) {
+            result = new Result(200, "Query artical by id successfully.", artical);
+        } else {
             throw new SystemException("System error", ExType.SystemDbTimeOut);
         }
-        result.setData(oneArtical);
+
+        return result;
+    }
+
+    @PostMapping("/updateArticle")
+    public Result updateArtical(Artical artical){
+        Result result;
+
+        Boolean flag = articalService.updateArtical(artical);
+        if (flag) {
+            result = new Result(200, "Update article successfully.");
+        } else {
+            result = new Result(201, "Update article failed.");
+        }
 
         return result;
     }

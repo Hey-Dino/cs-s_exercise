@@ -17,16 +17,38 @@ import java.util.List;
 public class ArticalCateController {
     ArticalCateService articalCateService;
 
-    @GetMapping("/cates")
-    public Result getArticalCate() {
+    // 获取文章分类信息（根据页号、每页记录数）
+    @PostMapping("/cates")
+    public Result getCates(Integer pageNo, Integer pageSize) {
         // 初始化响应内容
-        Result result = new Result(200, "Query article category successfully.");
-        // 获取文章分类信息，并挂载到响应体中
-        List<ArticalCate> listCate = articalCateService.getArticalCate();
-        result.setData(listCate);
+        Result result;
+
+        // 获取文章分类信息及数据总数
+        List<Object> data = articalCateService.getCates(pageNo, pageSize);
+        if (data != null) {
+            result = new Result(200, "Query article category successfully.", data.get(0));
+            result.setTotal((Integer) data.get(1));
+        } else {
+            result = new Result(201, "Query article category failed.");
+        }
 
         return result;
     }
+
+    // 获取所有文章分类信息
+   @GetMapping("/cates")
+    public Result getCates() {
+        Result result;
+
+        List<ArticalCate> cateList = articalCateService.getAllCates();
+        if (cateList != null) {
+            result = new Result(200, "Query all article category successfully.", cateList);
+        } else {
+            result = new Result(201, "Query all article category failed.");
+        }
+
+        return result;
+    };
 
     @PostMapping("/addcates")
     public Result addCates(ArticalCate articalCate) {

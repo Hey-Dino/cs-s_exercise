@@ -13,4 +13,6 @@ public interface ArticalService {
     Boolean deleteArtical(Integer id);
 
     Artical getOneArtical(Integer id);
+
+    Boolean updateArtical(Artical artical);
 }

@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface ArticalCateService {
 
-    List<ArticalCate> getArticalCate();
+    // 根据页号、每页记录数获取数据
+    List<Object> getCates(Integer pageNo, Integer pageSize);
+
+    // 获取全部文章分类信息
+    List<ArticalCate> getAllCates();
 
     Boolean addCates(ArticalCate articalCate);
 

@@ -8,6 +8,7 @@ import com.zr.ssm.service.ArticalService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,8 @@ public class ArticalServiceImpl implements ArticalService {
 
     @Override
     public Boolean addArtical(Artical artical) {
-        artical.setPub_date(new Date().toString());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        artical.setPub_date(format.format(new Date()));
         int i = articalMapper.insert(artical);
         return i == 1? true : false;
     }
@@ -53,7 +55,7 @@ public class ArticalServiceImpl implements ArticalService {
 
         // 用PageInfo对结果进行包装
         PageInfo page = new PageInfo(articals);
-        //获取总数
+        // 获取总数
         Integer total = (int) page.getTotal();
         List<Object> data = new ArrayList<Object>();
         data.add(articals);
@@ -71,6 +73,14 @@ public class ArticalServiceImpl implements ArticalService {
     @Override
     public Artical getOneArtical(Integer id) {
         Artical artical = articalMapper.selectById(id);
-        return artical!=null ? artical : null;
+        return artical != null ? artical : null;
+    }
+
+    @Override
+    public Boolean updateArtical(Artical artical) {
+        // 获取影响行数
+        int influenceLine = articalMapper.updateArtical(artical);
+
+        return influenceLine == 1 ? true : false;
     }
 }

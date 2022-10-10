@@ -14,7 +14,7 @@ public class ArticalSql {
                 {
                     SELECT("eva.id, eva.title, eva.pub_date, eva.state, evc.name AS cate_name");
                     FROM("ev_articles eva, ev_article_cate evc");
-                    WHERE("eva.cate_id = evc.id");
+                    WHERE("eva.cate_id = evc.id AND eva.is_delete = 0");
                     if (cate_id != null) {
                         WHERE("eva.cate_id = " + cate_id);
                     }
