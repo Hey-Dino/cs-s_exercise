@@ -1,17 +1,52 @@
 $(function () {
-    var layer = layui.layer
-    var form = layui.form
+    var layer = layui.layer;
+    var form = layui.form;
+    const laypage = layui.laypage;
+
+    /* 分页功能 */
+    const q = {
+        pageNo: 1,      // 页码
+        pageSize: 5,    // 每页记录数
+    }
+    function renderPage(total) {
+        laypage.render({
+            elem: 'pageBox',
+            count: total,
+            limit: q.pageSize,
+            curr: q.pageNo,
+            layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
+            limits: [3, 5, 10],
+            jump: function (obj, first) {
+                q.pageNo = obj.curr;
+                q.pageSize = obj.limit;
+                // 判断是否为首次执行，首次执行无需重新更新列表数据
+                if (!first) {
+                    initTable();
+                }
+            }
+        });
+    }
+
     // 初始化文章分类信息
-    initArtCateList()
+    initTable()
 
     /* 获取文章分类的列表 */
-    function initArtCateList() {
+    function initTable() {
         $.ajax({
-            method: 'GET',
+            method: 'POST',
             url: '/my/article/cates',
+            data: q,
             success: function (res) {
+                if (res.status !== 200) {
+                    return layer.msg('获取文章数据失败！');
+                }
+
+                // 生成结构字符串
                 var htmlStr = template('tpl-table', res)
-                $('tbody').html(htmlStr)
+                // 渲染表单信息
+                $('tbody').html(htmlStr);
+                // 调用方法渲染分页结构
+                renderPage(res.total);
             }
         })
     }
@@ -25,7 +60,7 @@ $(function () {
             title: '添加文章分类',
             content: $('#dialog-add').html()
         })
-    })
+    });
     /* 通过代理的形式，为 form-add 表单绑定 submit 事件 */
     $('body').on('submit', '#form-add', function (e) {
         // 阻止表单默认行为
@@ -40,13 +75,14 @@ $(function () {
                     return layer.msg('新增分类失败！')
                 }
 
-                initArtCateList()
                 layer.msg('新增分类成功！')
+                // 更新表单数据
+                initTable();
                 // 根据索引，关闭对应的弹出层
-                layer.close(indexAdd)
+                layer.close(indexAdd);
             }
         })
-    })
+    });
 
     /* 通过代理的形式，为 btn-edit 按钮绑定点击事件 */
     var indexEdit = null
@@ -68,7 +104,7 @@ $(function () {
                 form.val('form-edit', res.data)
             }
         })
-    })
+    });
     /* 通过代理的形式，为修改分类的表单绑定 submit 事件 */
     $('body').on('submit', '#form-edit', function (e) {
         // 阻止表单默认事件
@@ -84,13 +120,13 @@ $(function () {
                 }
 
                 layer.msg('更新分类数据成功！')
+                // 更新文章分类信息
+                initTable()
                 // 关闭对话框
                 layer.close(indexEdit);
-                // 更新文章分类信息
-                initArtCateList()
             }
         })
-    })
+    });
 
     /* 通过代理的形式，为删除按钮绑定点击事件 */
     $('tbody').on('click', '.btn-delete', function () {
@@ -106,12 +142,12 @@ $(function () {
                     }
 
                     layer.msg('删除分类成功！');
+                    // 更新文章分类信息
+                    initTable();
                     // 关闭对话框
                     layer.close(index);
-                    // 更新文章分类信息
-                    initArtCateList();
                 }
             })
         })
-    })
-})
+    });
+});
