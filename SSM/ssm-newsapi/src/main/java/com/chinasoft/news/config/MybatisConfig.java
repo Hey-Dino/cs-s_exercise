@@ -27,7 +27,7 @@ public class MybatisConfig {
     public SqlSessionFactoryBean sqlSessionFactory(DataSource ds, PageInterceptor pi ) throws Exception{
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
         factory.setDataSource(ds);
-//        factory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
+        // factory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
         // 让插件 在 sqlSessionFactory 里面生效
         factory.setPlugins(new Interceptor[]{pi});
 

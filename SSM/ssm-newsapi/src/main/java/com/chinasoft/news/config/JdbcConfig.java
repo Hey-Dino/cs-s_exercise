@@ -9,10 +9,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
-/**
- * @author 中软zhang
- * @create 2022-09-26 14:21
- */
 @PropertySource("classpath:db.properties")
 public class JdbcConfig {
 
@@ -36,7 +32,7 @@ public class JdbcConfig {
     }
 
     @Bean
-    // 事务管理器 注入容器 （spring的容器）
+    // 事务管理器 注入容器（spring的容器）
     public PlatformTransactionManager platformTransactionManager(DataSource ds) {
         DataSourceTransactionManager dstm = new DataSourceTransactionManager();
         dstm.setDataSource(ds);

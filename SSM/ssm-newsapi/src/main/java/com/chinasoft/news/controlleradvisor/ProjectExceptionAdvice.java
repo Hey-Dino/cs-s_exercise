@@ -8,10 +8,6 @@ import com.chinasoft.news.pojo.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-/**
- * @author 中软zhang
- * @create 2022-09-27 8:57
- */
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
 

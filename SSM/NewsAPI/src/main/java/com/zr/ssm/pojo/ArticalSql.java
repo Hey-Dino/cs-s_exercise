@@ -21,6 +21,7 @@ public class ArticalSql {
                     if (state != null && !(state.isEmpty())) {
                         WHERE("eva.state = " + state);
                     }
+                    ORDER_BY("eva.id DESC");
                 }
             };
 

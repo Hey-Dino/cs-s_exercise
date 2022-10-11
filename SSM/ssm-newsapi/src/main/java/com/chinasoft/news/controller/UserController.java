@@ -25,7 +25,7 @@ public class UserController {
         Integer userId = (Integer) request.getAttribute("userId");
         // 通过ID获取用户信息
         User user = userService.getUserInfo(userId);
-        // 置空用户密码，避免传输道客户端
+        // 置空用户密码，避免传输到客户端
         user.setPassword("");
 
         // 初始化响应结果实例

@@ -6,13 +6,12 @@ import com.zr.ssm.pojo.ExType;
 import com.zr.ssm.pojo.Result;
 import com.zr.ssm.service.ArticalService;
 import lombok.AllArgsConstructor;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,34 +25,39 @@ public class ArticalController {
     @PostMapping("/add")
     public Result addArtical(String title, Integer cate_id, String content, MultipartFile cover_img, String state,
                              HttpServletRequest request) {
-        Result result = new Result(0, "add artical ok");
+        Result result;
+
+        System.out.println("No.1: " + cover_img);
+
         Artical artical = new Artical(title, cate_id, content, state);
         try {
             // 根据上下文获取根目录getServletContext()
             String realPath = request.getSession().getServletContext().getRealPath("/");
-            // 利用UUID生成文件名
+            // 利用 UUID 生成文件名
             String fileName = UUID.randomUUID().toString();
             // 在指定目录下生成一个文件
             File file = new File(realPath + "uploads/" + fileName);
-
             // 将前端传过来的图片转换为文件并放在服务器中
             cover_img.transferTo(file);
-            //获取token中的用户信息中的id补充作者id
-            Integer id = (Integer) request.getAttribute("userId");
+
             String imgUrl = "uploads/" + fileName;
-            artical.setAuthor_id(id);
             artical.setCover_img(imgUrl);
 
-            System.out.println("~@@@~ " + artical);
+            // 获取token中的用户信息中的id补充作者id
+            Integer id = (Integer) request.getAttribute("userId");
+            artical.setAuthor_id(id);
+
             Boolean flag = articalService.addArtical(artical);
-            if (!flag) {
-                result.setStatus(1);
-                result.setMessage("add artical ok");
+            if (flag) {
+                result = new Result(200, "Add article successfully.");
+            } else {
+                result = new Result(201, "Add article failed.");
             }
         } catch (IOException e) {
             // 捕获系统异常转换为自定义异常
             throw new SystemException("uploads fail", ExType.SystemIOException);
         }
+
         return result;
     }
 
@@ -88,11 +92,25 @@ public class ArticalController {
     }
 
     @GetMapping("/{id}")
-    public Result getOneArtical(@PathVariable Integer id) {
+    public Result getOneArtical(@PathVariable Integer id, HttpServletRequest request) {
         Result result;
 
         Artical artical = articalService.getOneArtical(id);
         if (artical != null) {
+            /*// 根据上下文获取根目录getServletContext()
+            String realPath = request.getSession().getServletContext().getRealPath("/");
+            // 获取文章封面文件地址
+            String coverUrl = artical.getCover_img().replace("/", "\\");
+            // 创建文章封面文件（根据地址）
+            File coverFile = new File(realPath + coverUrl);
+            //
+            try {
+                MockMultipartFile multipartFile = new MockMultipartFile("File", coverFile.getName(), null, new FileInputStream(coverFile));
+                artical.setCover_img(multipartFile.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+
             result = new Result(200, "Query artical by id successfully.", artical);
         } else {
             throw new SystemException("System error", ExType.SystemDbTimeOut);
