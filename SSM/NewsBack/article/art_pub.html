@@ -72,7 +72,9 @@
                             <!-- 预览的区域 -->
                             <div class="img-preview"></div>
                             <!-- 选择封面按钮 -->
-                            <button type="button" class="layui-btn layui-btn-danger" id="btnChooseImage">选择封面</button>
+                            <button type="button" class="layui-btn layui-btn-primary" id="btnChooseImage">
+                                <i class="layui-icon layui-icon-upload-drag"></i>选择封面
+                            </button>
                             <!-- 隐藏的文件选择框 -->
                             <input type="file" id="coverFile" style="display: none;"
                                 accept="image/png,image/jpeg,image/gif" />
@@ -82,8 +84,10 @@
                 <!-- 第五行 -->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit>发布</button>
                         <button class="layui-btn layui-btn-primary" lay-submit id="btnSave2">存为草稿</button>
+                        <button class="layui-btn" lay-submit>
+                            <i class="layui-icon layui-icon-release"></i>发布
+                        </button>
                     </div>
                 </div>
             </form>

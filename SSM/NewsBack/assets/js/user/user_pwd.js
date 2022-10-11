@@ -15,8 +15,10 @@ $(function () {
                     return layui.layer.msg('更新密码失败！');
                 }
                 layui.layer.msg('更新密码成功！');
-                // 重置表单
-                $('.layui-form')[0].reset();
+                // 清空本地存储中的 token
+                localStorage.removeItem('token')
+                // 重新跳转到登录页面
+                window.parent.location.pathname = '/login.html'
             }
         })
     })

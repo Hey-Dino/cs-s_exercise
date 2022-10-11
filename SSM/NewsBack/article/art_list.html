@@ -5,8 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <link rel="stylesheet" href="../assets/lib/layui/css/layui.css" />
     <link rel="stylesheet" href="../assets/css/article/art_list.css" />
+
+    <!-- 导入第三方的 JS 插件 -->
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <!-- 导入自己的 JS 脚本 -->
+    <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/js/article/art_list.js"></script>
 </head>
 
 <body>
@@ -27,7 +36,9 @@
                     </select>
                 </div>
                 <div class="layui-form-item layui-inline">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">
+                        <i class="layui-icon layui-icon-senior"></i>筛选
+                    </button>
                 </div>
             </form>
 
@@ -66,8 +77,11 @@
             <td>{{$value.pub_date|dateFormated}}</td>
             <td>{{$value.state|stateFormated}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.id}}">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">删除</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">
+                    <i class="layui-icon layui-icon-subtraction"></i>删除</button>
+                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.id}}">
+                    <i class="layui-icon layui-icon-edit"></i>编辑
+                </button>
             </td>
         </tr>
         {{/each}}
@@ -119,14 +133,24 @@
             </div>
             <!-- 文章内容 -->
             <div class="layui-form-item">
-                <label class="layui-form-label">文章内容</label>
+                <label class="layui-form-label">内容</label>
                 <div class="layui-input-block">
                     <textarea name="content" id="" rows="3" class="layui-textarea"></textarea>
                 </div>
             </div>
+            <!-- 文章封面 -->
+            <!-- <div class="layui-form-item">
+                <label class="layui-form-label">封面</label>
+                <div class="layui-input-block">
+                    <img src="" id="cover_img" name="cover_img">
+                </div>
+            </div> -->
             <!-- 确认框 -->
             <div class="layui-form-item">
                 <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-primary" id="edit-reset-btn">
+                        重置
+                    </button>
                     <button class="layui-btn" lay-submit>
                         确认修改
                     </button>
@@ -141,14 +165,6 @@
         <option value="{{$value.id}}">{{$value.name}}</option>
         {{/each}}
     </script>
-
-    <!-- 导入第三方的 JS 插件 -->
-    <script src="../assets/lib/layui/layui.all.js"></script>
-    <script src="../assets/lib/jquery.js"></script>
-    <script src="../assets/js/baseAPI.js"></script>
-    <script src="../assets/lib/template-web.js"></script>
-    <!-- 导入自己的 JS 脚本 -->
-    <script src="../assets/js/article/art_list.js"></script>
 </body>
 
 </html>

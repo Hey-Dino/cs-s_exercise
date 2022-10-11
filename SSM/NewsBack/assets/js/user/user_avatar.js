@@ -56,12 +56,15 @@ $(function () {
                 avatar: dataURL
             },
             success: function (res) {
-                console.log(res)
                 if (res.status !== 200) {
                     return layer.msg('更换头像失败！')
                 }
-                layer.msg('更换头像成功！')
-                window.parent.getUserInfo()
+                layer.msg('更换头像成功！');
+                /* 
+                    调用父页面的方法，更新用户头像信息
+                    注意：避免将 getUserInfo() 方法写在 $(function(){}) 中    
+                */
+                window.parent.getUserInfo();
             }
         })
     })

@@ -71,7 +71,7 @@ $(function () {
     // 初始化文章信息
     initTable();
 
-    /* 获取文章分类信息 */
+    /* 获取所有文章分类信息 */
     function getCategories() {
         let categories = [];
 
@@ -89,6 +89,29 @@ $(function () {
         })
 
         return categories;
+    }
+    /* 初始化编辑框 */
+    function initEditBox(articleId) {
+        $.ajax({
+            method: 'GET',
+            url: `/my/article/${articleId}`,
+            success: function (res) {
+                if (res.status === 200) {
+                    console.log(res.data.cover_img)
+                    $('#cover_img').attr('src', res.data.cover_img);
+
+                    // 获取文章分类信息
+                    const categories = getCategories();
+                    // 由模板引擎生成结构字符串（通过文章分类信息动态生成）
+                    const htmlStr = template('edit-cate', categories);
+                    // 渲染结构
+                    $('#form-edit [name=cate_id]').html(htmlStr);
+
+                    // 渲染对话框内容（渲染结果为最终显示样式）
+                    form.val('form-edit', res.data);
+                }
+            }
+        });
     }
 
     /* 初始化文章分类信息 */
@@ -186,24 +209,9 @@ $(function () {
         // 获取文章ID
         const articleId = $(this).attr('data-id');
         // 获取文章信息（根据ID查询）
-        $.ajax({
-            method: 'GET',
-            url: `/my/article/${articleId}`,
-            success: function (res) {
-                if (res.status === 200) {
-                    // 获取文章分类信息
-                    const categories = getCategories();
-                    // 由模板引擎生成结构字符串（通过文章分类信息动态生成）
-                    const htmlStr = template('edit-cate', categories);
-                    // 渲染结构
-                    $('#form-edit [name=cate_id]').html(htmlStr);
-
-                    // 渲染对话框内容（渲染结果为最终显示样式）
-                    form.val('form-edit', res.data);
-                }
-            }
-        });
+        initEditBox(articleId);
     });
+    // 提交编辑表单
     $('body').on('submit', '#form-edit', function (e) {
         // 阻止表单的默认事件
         e.preventDefault();
@@ -224,5 +232,15 @@ $(function () {
                 initTable();
             }
         })
-    })
+    });
+    // 重置编辑表单
+    $('body').on('click', '#edit-reset-btn', function (e) {
+        // 阻止表单的默认行为
+        e.preventDefault();
+
+        // 获取文章ID（通过结构中保存ID）
+        const articleId = $('#form-edit [name=id]').val();
+        // 重置编辑框内容
+        initEditBox(articleId);
+    });
 })

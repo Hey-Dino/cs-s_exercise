@@ -26,11 +26,13 @@
     <div class="layui-card">
         <div class="layui-card-header">
             <span>文章类别管理</span>
-            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" id="btnAddCate">添加类别</button>
+            <button type="button" class="layui-btn layui-btn-sm" id="btnAddCate">
+                <i class="layui-icon layui-icon-addition"></i>添加类别
+            </button>
         </div>
 
-        <!-- 列表区域 -->
         <div class="layui-card-body">
+            <!-- 列表区域 -->
             <table class="layui-table">
                 <colgroup>
                     <col />
@@ -46,10 +48,10 @@
                 </thead>
                 <tbody></tbody>
             </table>
-        </div>
 
-        <!-- 分页区域 -->
-        <div id="pageBox"></div>
+            <!-- 分页区域 -->
+            <div id="pageBox"></div>
+        </div>
     </div>
 
     <!-- 表格数据的模板 -->
@@ -59,8 +61,12 @@
             <td>{{$value.name}}</td>
             <td>{{$value.alias}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.id}}">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">删除</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.id}}">
+                    <i class="layui-icon layui-icon-subtraction"></i>删除
+                </button>
+                <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.id}}">
+                    <i class="layui-icon layui-icon-edit"></i>编辑
+                </button>
             </td>
         </tr>
         {{/each}}

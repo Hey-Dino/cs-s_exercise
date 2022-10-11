@@ -17,7 +17,7 @@ $(function () {
                 $('[name=cate_id]').html(htmlStr);
                 form.render();
             }
-        })
+        });
     }
     // 初始化文章类别
     initCate()
@@ -47,8 +47,10 @@ $(function () {
         if (files.length === 0) {
             return
         }
+        console.log(files[0])
         // 根据文件，创建对应的 URL 地址
-        var newImgURL = URL.createObjectURL(files[0])
+        var newImgURL = URL.createObjectURL(files[0]);
+
         // 为裁剪区域重新设置图片
         $image
             .cropper('destroy')     // 销毁旧的裁剪区域
@@ -58,7 +60,6 @@ $(function () {
 
     // 定义文章的发布状态
     let art_state = 0;
-
     // 为存为草稿按钮，绑定点击事件处理函数
     $('#btnSave2').on('click', function () {
         art_state = 1;
@@ -86,9 +87,8 @@ $(function () {
                 // 将 Canvas 画布上的内容，转化为文件对象，得到文件对象后，进行后续的操作
                 // 5. 将文件对象，存储到 fd 中
                 fd.append('cover_img', blob);
-                console.dir(fd.get('state'));
                 // 6. 发起 ajax 数据请求
-                publishArticle(fd)
+                publishArticle(fd);
             });
     })
 
@@ -103,13 +103,14 @@ $(function () {
             contentType: false,
             processData: false,
             success: function (res) {
-                if (res.status !== 0) {
+                if (res.status !== 200) {
                     return layer.msg('发布文章失败！')
                 }
 
-                layer.msg('发布文章成功！')
+                layer.msg('发布文章成功！');
                 // 发布文章成功后，跳转到文章列表页面
-                location.href = '/article/art_list.html'
+                // location.href = '/article/art_list.html';    // 直接设置href，会造成 点击效果 仍停留在 发布文章
+                $('#art-link', parent.document).get(0).click();
             }
         })
     }
