@@ -27,8 +27,6 @@ public class ArticalController {
                              HttpServletRequest request) {
         Result result;
 
-        System.out.println("No.1: " + cover_img);
-
         Artical artical = new Artical(title, cate_id, content, state);
         try {
             // 根据上下文获取根目录getServletContext()
@@ -97,20 +95,7 @@ public class ArticalController {
 
         Artical artical = articalService.getOneArtical(id);
         if (artical != null) {
-            /*// 根据上下文获取根目录getServletContext()
-            String realPath = request.getSession().getServletContext().getRealPath("/");
-            // 获取文章封面文件地址
-            String coverUrl = artical.getCover_img().replace("/", "\\");
-            // 创建文章封面文件（根据地址）
-            File coverFile = new File(realPath + coverUrl);
-            //
-            try {
-                MockMultipartFile multipartFile = new MockMultipartFile("File", coverFile.getName(), null, new FileInputStream(coverFile));
-                artical.setCover_img(multipartFile.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-
+            System.out.println("Artical: " + artical);
             result = new Result(200, "Query artical by id successfully.", artical);
         } else {
             throw new SystemException("System error", ExType.SystemDbTimeOut);

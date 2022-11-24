@@ -13,3 +13,7 @@ body {
     padding-top: 15px;
     padding-right: 15px;
 }
+
+#cover_img {
+    width: 300px;
+}

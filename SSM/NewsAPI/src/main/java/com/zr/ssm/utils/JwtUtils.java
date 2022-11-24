@@ -47,10 +47,10 @@ public class JwtUtils {
             jwt = verifier.verify(token);
             return true;
         } catch (Exception e) {
-            //效验失败
-            //这里抛出的异常是我自定义的一个异常，你也可以写成别的
+            // 效验失败
+            // 这里抛出的异常是我自定义的一个异常，你也可以写成别的
             throw new BussinessException("invalid token " + token, ExType.BussInvalidToken);
-//            return false;
+            // return false;
         }
     }
 

@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan({"com.zr.ssm.service", "com.zr.ssm.mapper"})
-/* 第二种扫描方式
-@ComponentScan(value = "com.chinasoft.mvc01", excludeFilters = {
+// 第二种扫描方式
+/*@ComponentScan(value = "com.chinasoft.mvc01", excludeFilters = {
         // 就是 controller的对象 不会被注入到 spring 容器
         @ComponentScan.Filter(
                 // 类型是 注解注入
@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
                 classes = Controller.class
         )
 })*/
+
 @Import({JdbcConfig.class, MybatiesConfig.class})
 // 开启事务管理
 @EnableTransactionManagement

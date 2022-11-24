@@ -1,4 +1,6 @@
 $(function () {
+    const baseUrl = "http://localhost:8080/";
+
     var layer = layui.layer
     var form = layui.form
     var laypage = layui.laypage
@@ -97,8 +99,9 @@ $(function () {
             url: `/my/article/${articleId}`,
             success: function (res) {
                 if (res.status === 200) {
-                    console.log(res.data.cover_img)
-                    $('#cover_img').attr('src', res.data.cover_img);
+                    const imgUrl = baseUrl + res.data.cover_img;
+                    console.log(imgUrl)
+                    $('#cover_img').prop('src', imgUrl);
 
                     // 获取文章分类信息
                     const categories = getCategories();
