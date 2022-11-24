@@ -1,0 +1,20 @@
+
+
+spring:
+  datasource:
+    username: root
+    password: w442395
+    url: jdbc:mysql://localhost:3306/mall_springboot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  servlet:
+    context-path: /api/private/v1/
+  port: 8888
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml  # mapper\u6620\u5C04\u6587\u4EF6\u8DEF\u5F84
+  type-aliases-package: com.example.demo.entity
+  configuration:
+    map-underscore-to-camel-case: true  # \u5F00\u542F\u9A7C\u5CF0\u547D\u540D
